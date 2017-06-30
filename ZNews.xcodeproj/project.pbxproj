@@ -32,6 +32,7 @@
 		C92C4D4B1F03F4DB004522F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C92C4D4A1F03F4DB004522F1 /* Assets.xcassets */; };
 		C92C4D511F03F4DB004522F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C92C4D501F03F4DB004522F1 /* main.m */; };
 		C9D11CC91F054C7E00CED71B /* TabBarImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9D11CC81F054C7E00CED71B /* TabBarImage.xcassets */; };
+		C9D11CCF1F06966000CED71B /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D11CCE1F06966000CED71B /* LoginView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,8 @@
 		C92C4D4F1F03F4DB004522F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C92C4D501F03F4DB004522F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C9D11CC81F054C7E00CED71B /* TabBarImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TabBarImage.xcassets; sourceTree = "<group>"; };
+		C9D11CCD1F06966000CED71B /* LoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
+		C9D11CCE1F06966000CED71B /* LoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +187,8 @@
 			children = (
 				BACC3ED11F063512001F5132 /* ZMeViewController.h */,
 				BACC3ED21F063512001F5132 /* ZMeViewController.m */,
+				C9D11CCD1F06966000CED71B /* LoginView.h */,
+				C9D11CCE1F06966000CED71B /* LoginView.m */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 				BACC3EDA1F0637BA001F5132 /* ZViewController.m in Sources */,
 				BACC3ED61F063520001F5132 /* ZVideoViewController.m in Sources */,
 				BACC3EE51F064B9E001F5132 /* ViewController.m in Sources */,
+				C9D11CCF1F06966000CED71B /* LoginView.m in Sources */,
 				BACC3ECD1F0634EE001F5132 /* ZImportantNewsViewController.m in Sources */,
 				BACC3EAE1F05EC0B001F5132 /* ZMainTabBarController.m in Sources */,
 				BACC3EE21F0641B7001F5132 /* UIColor+HexString.m in Sources */,
@@ -456,6 +462,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CF5V5M2DSS;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ZNews/PrefixHeader.pch;
 				INFOPLIST_FILE = ZNews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -470,6 +478,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CF5V5M2DSS;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ZNews/PrefixHeader.pch;
 				INFOPLIST_FILE = ZNews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -9,7 +9,6 @@
 #import "ZViewController.h"
 #import "UIColor+HexString.h"
 
-#define CUSTOMER_RED @"FF4040"
 
 @interface ZViewController ()
 
@@ -21,7 +20,16 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithHexString:CUSTOMER_RED];
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0)
+    {
+        [self.navigationController.navigationBar setBarTintColor:CUSTOMER_RED];
+    }
+    else{
+        [self.navigationController.navigationBar setTintColor:CUSTOMER_RED];
+    }
+    
+//    self.navigationController.navigationBar.backgroundColor = ;
+//    self.navigationController.navigationBar.tintColor = [UIColor colorWithHexString:CUSTOMER_RED];
     // Do any additional setup after loading the view.
 }
 
@@ -30,6 +38,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 /*
 #pragma mark - Navigation
 
