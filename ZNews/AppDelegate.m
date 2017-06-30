@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ZMainTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    ZMainTabBarController *zTabBarContrller = [ZMainTabBarController new];
+    self.window.rootViewController = zTabBarContrller;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
