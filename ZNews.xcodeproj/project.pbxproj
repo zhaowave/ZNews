@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C88319FD3BE9CB4E8E08B9D /* libPods-ZNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3433314682307CBE85DF3C /* libPods-ZNews.a */; };
 		BACC3EAE1F05EC0B001F5132 /* ZMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACC3EAD1F05EC0B001F5132 /* ZMainTabBarController.m */; };
 		BACC3EB11F05F024001F5132 /* ZHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACC3EB01F05F024001F5132 /* ZHomePageViewController.m */; };
 		BACC3EBD1F063348001F5132 /* tabbar_icon_importantNews_highlight_15x20_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BACC3EB31F063348001F5132 /* tabbar_icon_importantNews_highlight_15x20_@2x.png */; };
@@ -31,6 +32,8 @@
 		C92C4D431F03F4DB004522F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C92C4D421F03F4DB004522F1 /* AppDelegate.m */; };
 		C92C4D4B1F03F4DB004522F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C92C4D4A1F03F4DB004522F1 /* Assets.xcassets */; };
 		C92C4D511F03F4DB004522F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C92C4D501F03F4DB004522F1 /* main.m */; };
+		C931F1431F07C088005805EF /* MeTableviewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C931F1421F07C088005805EF /* MeTableviewDataSource.m */; };
+		C931F1471F07E189005805EF /* Me.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C931F1461F07E189005805EF /* Me.xcassets */; };
 		C9D11CC91F054C7E00CED71B /* TabBarImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9D11CC81F054C7E00CED71B /* TabBarImage.xcassets */; };
 		C9D11CCF1F06966000CED71B /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D11CCE1F06966000CED71B /* LoginView.m */; };
 /* End PBXBuildFile section */
@@ -73,9 +76,16 @@
 		C92C4D4A1F03F4DB004522F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C92C4D4F1F03F4DB004522F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C92C4D501F03F4DB004522F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C931F1411F07C088005805EF /* MeTableviewDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeTableviewDataSource.h; sourceTree = "<group>"; };
+		C931F1421F07C088005805EF /* MeTableviewDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeTableviewDataSource.m; sourceTree = "<group>"; };
+		C931F1451F07DDDD005805EF /* setting_basic_18x18_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting_basic_18x18_@2x.png"; sourceTree = "<group>"; };
+		C931F1461F07E189005805EF /* Me.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Me.xcassets; sourceTree = "<group>"; };
 		C9D11CC81F054C7E00CED71B /* TabBarImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TabBarImage.xcassets; sourceTree = "<group>"; };
 		C9D11CCD1F06966000CED71B /* LoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
 		C9D11CCE1F06966000CED71B /* LoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
+		D16076003DCB700E21FD6D70 /* Pods-ZNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZNews/Pods-ZNews.release.xcconfig"; sourceTree = "<group>"; };
+		E4BE1E1A1A89E00BC0420BE2 /* Pods-ZNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZNews/Pods-ZNews.debug.xcconfig"; sourceTree = "<group>"; };
+		FC3433314682307CBE85DF3C /* libPods-ZNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,15 +93,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C88319FD3BE9CB4E8E08B9D /* libPods-ZNews.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35E4BD13AB979C3501B9F218 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC3433314682307CBE85DF3C /* libPods-ZNews.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		60B7486E2CFA88136C141306 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E4BE1E1A1A89E00BC0420BE2 /* Pods-ZNews.debug.xcconfig */,
+				D16076003DCB700E21FD6D70 /* Pods-ZNews.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BACC3E9A1F05D628001F5132 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				C931F1451F07DDDD005805EF /* setting_basic_18x18_@2x.png */,
 				BACC3EB31F063348001F5132 /* tabbar_icon_importantNews_highlight_15x20_@2x.png */,
 				BACC3EB41F063348001F5132 /* tabbar_icon_importantNews_normal_15x20_@2x.png */,
 				BACC3EB51F063348001F5132 /* tabbar_icon_live_highlight_20x17_@2x.png */,
@@ -104,6 +133,7 @@
 				BACC3EBC1F063348001F5132 /* tabbar_icon_video_normal_19x19_@2x.png */,
 				C92C4D4A1F03F4DB004522F1 /* Assets.xcassets */,
 				C9D11CC81F054C7E00CED71B /* TabBarImage.xcassets */,
+				C931F1461F07E189005805EF /* Me.xcassets */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -189,6 +219,8 @@
 				BACC3ED21F063512001F5132 /* ZMeViewController.m */,
 				C9D11CCD1F06966000CED71B /* LoginView.h */,
 				C9D11CCE1F06966000CED71B /* LoginView.m */,
+				C931F1411F07C088005805EF /* MeTableviewDataSource.h */,
+				C931F1421F07C088005805EF /* MeTableviewDataSource.m */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -216,6 +248,8 @@
 			children = (
 				C92C4D401F03F4DB004522F1 /* ZNews */,
 				C92C4D3F1F03F4DB004522F1 /* Products */,
+				60B7486E2CFA88136C141306 /* Pods */,
+				35E4BD13AB979C3501B9F218 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -246,9 +280,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C92C4D541F03F4DB004522F1 /* Build configuration list for PBXNativeTarget "ZNews" */;
 			buildPhases = (
+				1C98C48AC2F608F33D62CB0D /* [CP] Check Pods Manifest.lock */,
 				C92C4D3A1F03F4DB004522F1 /* Sources */,
 				C92C4D3B1F03F4DB004522F1 /* Frameworks */,
 				C92C4D3C1F03F4DB004522F1 /* Resources */,
+				548ACEAB5E33C1A6E73AD004 /* [CP] Embed Pods Frameworks */,
+				2B28AAD4D4AE00A0AD455CD7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -306,6 +343,7 @@
 				BACC3EEB1F064BEB001F5132 /* Main.storyboard in Resources */,
 				BACC3EEA1F064BEB001F5132 /* LaunchScreen.storyboard in Resources */,
 				BACC3EC61F063348001F5132 /* tabbar_icon_video_normal_19x19_@2x.png in Resources */,
+				C931F1471F07E189005805EF /* Me.xcassets in Resources */,
 				BACC3EC01F063348001F5132 /* tabbar_icon_live_normal_20x17_@2x.png in Resources */,
 				BACC3EC31F063348001F5132 /* tabbar_icon_news_highlight_41x53_@2x.png in Resources */,
 				C9D11CC91F054C7E00CED71B /* TabBarImage.xcassets in Resources */,
@@ -314,6 +352,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C98C48AC2F608F33D62CB0D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2B28AAD4D4AE00A0AD455CD7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZNews/Pods-ZNews-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		548ACEAB5E33C1A6E73AD004 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZNews/Pods-ZNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C92C4D3A1F03F4DB004522F1 /* Sources */ = {
@@ -327,6 +413,7 @@
 				BACC3ED61F063520001F5132 /* ZVideoViewController.m in Sources */,
 				BACC3EE51F064B9E001F5132 /* ViewController.m in Sources */,
 				C9D11CCF1F06966000CED71B /* LoginView.m in Sources */,
+				C931F1431F07C088005805EF /* MeTableviewDataSource.m in Sources */,
 				BACC3ECD1F0634EE001F5132 /* ZImportantNewsViewController.m in Sources */,
 				BACC3EAE1F05EC0B001F5132 /* ZMainTabBarController.m in Sources */,
 				BACC3EE21F0641B7001F5132 /* UIColor+HexString.m in Sources */,
@@ -459,8 +546,10 @@
 		};
 		C92C4D551F03F4DB004522F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4BE1E1A1A89E00BC0420BE2 /* Pods-ZNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = CF5V5M2DSS;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ZNews/PrefixHeader.pch;
@@ -469,14 +558,16 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.learngo.ZNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		C92C4D561F03F4DB004522F1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D16076003DCB700E21FD6D70 /* Pods-ZNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = CF5V5M2DSS;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ZNews/PrefixHeader.pch;
@@ -485,7 +576,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.learngo.ZNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

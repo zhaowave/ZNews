@@ -52,9 +52,10 @@
     VC.title = titleText;
     //导航
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:VC];
-    
     nav.tabBarItem = [[UITabBarItem alloc] initWithTitle:titleText image:normal selectedImage:selected];
-
+    [nav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    nav.navigationBar.tintColor = [UIColor whiteColor];
+    nav.navigationBar.barTintColor = [UIColor greenColor];
     return nav;
     
 }
