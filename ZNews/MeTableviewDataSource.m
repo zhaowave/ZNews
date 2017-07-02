@@ -61,6 +61,14 @@
     return _dict.count + 1;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return;
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+   // UITableViewCell *cell = [];
+}
+
 //顶部禁止拉动
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
