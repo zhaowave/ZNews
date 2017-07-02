@@ -20,7 +20,7 @@
 
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
-#define CUSTOMER_RED [UIColor colorWithHexString:@"FF4040"]
+#define CUSTOMER_RED [UIColor colorWithHexString:@"dd3238"]
 #define WHITECOLOR [UIColor whiteColor]
 
 

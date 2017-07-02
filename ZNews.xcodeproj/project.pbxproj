@@ -78,7 +78,6 @@
 		C92C4D501F03F4DB004522F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C931F1411F07C088005805EF /* MeTableviewDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeTableviewDataSource.h; sourceTree = "<group>"; };
 		C931F1421F07C088005805EF /* MeTableviewDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeTableviewDataSource.m; sourceTree = "<group>"; };
-		C931F1451F07DDDD005805EF /* setting_basic_18x18_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting_basic_18x18_@2x.png"; sourceTree = "<group>"; };
 		C931F1461F07E189005805EF /* Me.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Me.xcassets; sourceTree = "<group>"; };
 		C9D11CC81F054C7E00CED71B /* TabBarImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TabBarImage.xcassets; sourceTree = "<group>"; };
 		C9D11CCD1F06966000CED71B /* LoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
@@ -120,7 +119,6 @@
 		BACC3E9A1F05D628001F5132 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				C931F1451F07DDDD005805EF /* setting_basic_18x18_@2x.png */,
 				BACC3EB31F063348001F5132 /* tabbar_icon_importantNews_highlight_15x20_@2x.png */,
 				BACC3EB41F063348001F5132 /* tabbar_icon_importantNews_normal_15x20_@2x.png */,
 				BACC3EB51F063348001F5132 /* tabbar_icon_live_highlight_20x17_@2x.png */,

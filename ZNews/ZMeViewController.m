@@ -34,7 +34,7 @@
     _tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
     _tableView.delegate = _dataSource;
     _tableView.dataSource = _dataSource;
-    LoginView *loginView = [[LoginView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT/3 - 20)];
+    LoginView *loginView = [[LoginView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT/3 - 20-20)];
     //[self.view addSubview:loginView];
     _tableView.tableHeaderView = loginView;
     [self.view addSubview:_tableView];
