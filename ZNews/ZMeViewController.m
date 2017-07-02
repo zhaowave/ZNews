@@ -32,11 +32,16 @@
 }
 - (void) createTableView {
     _tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+    _tableView.backgroundColor = [UIColor colorWithHexString:@"f5f5f9"];
+    _dataSource = [MeTableviewDataSource new];
     _tableView.delegate = _dataSource;
     _tableView.dataSource = _dataSource;
-    LoginView *loginView = [[LoginView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT/3 - 20-20)];
-    //[self.view addSubview:loginView];
+    
+    LoginView *loginView = [[LoginView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT/3-35)];
     _tableView.tableHeaderView = loginView;
+    
+    _tableView.sectionHeaderHeight = 5;
+    _tableView.scrollEnabled = NO;
     [self.view addSubview:_tableView];
 }
 

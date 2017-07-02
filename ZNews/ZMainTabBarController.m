@@ -18,6 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createTabControllers];
+    if (TEST_MODE) {
+        self.selectedIndex = 4;
+    }
+    
     // Do any additional setup after loading the view.
 }
 
