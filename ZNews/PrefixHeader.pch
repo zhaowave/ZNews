@@ -25,6 +25,7 @@
 #define CUSTOMER_RED [UIColor colorWithHexString:@"dd3238"]
 #define WHITECOLOR [UIColor whiteColor]
 #define LIGHTGRAYCOLOR [UIColor lightGrayColor]
+#define BLACKCOLOR [UIColor colorWithHexString:@"333333"]
 
 #define THIRD_PARTY_LOGIN_TEXT_SIZE 14
 

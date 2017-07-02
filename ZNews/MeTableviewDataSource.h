@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface MeTableviewDataSource : NSObject<UITableViewDelegate,UITableViewDataSource>
+@interface MeTableviewDataSource : NSObject<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 
-
-
-
+@property(strong,nonatomic) NSDictionary *dict;
+@property(strong,nonatomic) NSDictionary *imageDict;
 @end
