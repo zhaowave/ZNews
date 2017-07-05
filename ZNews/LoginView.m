@@ -38,7 +38,7 @@
         make.height.mas_equalTo(30);
     }];
     //手机号快速注册
-    UIButton *mobileQuickLogon = [UIButton buttonWithType:UIButtonTypePlain];
+    UIButton *mobileQuickLogon = [UIButton buttonWithType:UIButtonTypeCustom];
     [self addSubview:mobileQuickLogon];
     [mobileQuickLogon setAttributedTitle:[[NSAttributedString alloc] initWithString:@"手机号快速注册" attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:14], NSForegroundColorAttributeName:WHITECOLOR}] forState:UIControlStateNormal];
     

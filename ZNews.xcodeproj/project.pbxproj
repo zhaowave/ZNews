@@ -29,6 +29,7 @@
 		BACC3EE51F064B9E001F5132 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACC3EE41F064B9E001F5132 /* ViewController.m */; };
 		BACC3EEA1F064BEB001F5132 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BACC3EE61F064BEB001F5132 /* LaunchScreen.storyboard */; };
 		BACC3EEB1F064BEB001F5132 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BACC3EE81F064BEB001F5132 /* Main.storyboard */; };
+		BACC3F0E1F0B8040001F5132 /* HomePage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BACC3F0D1F0B8040001F5132 /* HomePage.xcassets */; };
 		C92C4D431F03F4DB004522F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C92C4D421F03F4DB004522F1 /* AppDelegate.m */; };
 		C92C4D4B1F03F4DB004522F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C92C4D4A1F03F4DB004522F1 /* Assets.xcassets */; };
 		C92C4D511F03F4DB004522F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C92C4D501F03F4DB004522F1 /* main.m */; };
@@ -72,6 +73,7 @@
 		BACC3EE41F064B9E001F5132 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BACC3EE71F064BEB001F5132 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BACC3EE91F064BEB001F5132 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BACC3F0D1F0B8040001F5132 /* HomePage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HomePage.xcassets; sourceTree = "<group>"; };
 		C92C4D3E1F03F4DB004522F1 /* ZNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92C4D411F03F4DB004522F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C92C4D421F03F4DB004522F1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				C92C4D4A1F03F4DB004522F1 /* Assets.xcassets */,
 				C9D11CC81F054C7E00CED71B /* TabBarImage.xcassets */,
 				C931F1461F07E189005805EF /* Me.xcassets */,
+				BACC3F0D1F0B8040001F5132 /* HomePage.xcassets */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				TargetAttributes = {
 					C92C4D3D1F03F4DB004522F1 = {
 						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -341,6 +345,7 @@
 			files = (
 				BACC3EC21F063348001F5132 /* tabbar_icon_me_normal_19x19_@2x.png in Resources */,
 				BACC3EC11F063348001F5132 /* tabbar_icon_me_highlight_19x19_@2x.png in Resources */,
+				BACC3F0E1F0B8040001F5132 /* HomePage.xcassets in Resources */,
 				BACC3EBD1F063348001F5132 /* tabbar_icon_importantNews_highlight_15x20_@2x.png in Resources */,
 				BACC3EC51F063348001F5132 /* tabbar_icon_video_highlight_19x19_@2x.png in Resources */,
 				C92C4D4B1F03F4DB004522F1 /* Assets.xcassets in Resources */,
@@ -558,6 +563,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = CF5V5M2DSS;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ZNews/PrefixHeader.pch;
@@ -566,6 +572,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.learngo.ZNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -576,6 +583,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = CF5V5M2DSS;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ZNews/PrefixHeader.pch;
@@ -584,6 +592,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.learngo.ZNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
