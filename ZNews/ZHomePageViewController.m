@@ -24,11 +24,6 @@
     [right setImage:[UIImage imageNamed:@"search_icon_highlight"] forState:UIControlStateHighlighted];
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:right];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
-//    self.view.backgroundColor = CUSTOMER_RED;
-    
-    
-    //imageView.image = [UIImage imageNamed:@"nav_live_room"];
-    // Do any additional setup after loading the view.
 }
 
 - (void) viewWillAppear:(BOOL)animated {
