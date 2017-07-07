@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8C88319FD3BE9CB4E8E08B9D /* libPods-ZNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3433314682307CBE85DF3C /* libPods-ZNews.a */; };
+		BAC1F8A41F0F335E000A4D12 /* NewsTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC1F8A31F0F335D000A4D12 /* NewsTableViewDataSource.m */; };
 		BACC3EAE1F05EC0B001F5132 /* ZMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACC3EAD1F05EC0B001F5132 /* ZMainTabBarController.m */; };
 		BACC3EB11F05F024001F5132 /* ZHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACC3EB01F05F024001F5132 /* ZHomePageViewController.m */; };
 		BACC3EBD1F063348001F5132 /* tabbar_icon_importantNews_highlight_15x20_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BACC3EB31F063348001F5132 /* tabbar_icon_importantNews_highlight_15x20_@2x.png */; };
@@ -29,6 +30,7 @@
 		BACC3EEA1F064BEB001F5132 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BACC3EE61F064BEB001F5132 /* LaunchScreen.storyboard */; };
 		BACC3EEB1F064BEB001F5132 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BACC3EE81F064BEB001F5132 /* Main.storyboard */; };
 		BACC3F0E1F0B8040001F5132 /* HomePage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BACC3F0D1F0B8040001F5132 /* HomePage.xcassets */; };
+		BACC3F201F0F25A9001F5132 /* NewsBasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BACC3F1F1F0F25A9001F5132 /* NewsBasicInfo.m */; };
 		C92C4D431F03F4DB004522F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C92C4D421F03F4DB004522F1 /* AppDelegate.m */; };
 		C92C4D4B1F03F4DB004522F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C92C4D4A1F03F4DB004522F1 /* Assets.xcassets */; };
 		C92C4D511F03F4DB004522F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C92C4D501F03F4DB004522F1 /* main.m */; };
@@ -42,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BAC1F8A21F0F335D000A4D12 /* NewsTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewDataSource.h; sourceTree = "<group>"; };
+		BAC1F8A31F0F335D000A4D12 /* NewsTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewDataSource.m; sourceTree = "<group>"; };
 		BACC3EAC1F05EC0B001F5132 /* ZMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMainTabBarController.h; sourceTree = "<group>"; };
 		BACC3EAD1F05EC0B001F5132 /* ZMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMainTabBarController.m; sourceTree = "<group>"; };
 		BACC3EAF1F05F024001F5132 /* ZHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHomePageViewController.h; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 		BACC3EE71F064BEB001F5132 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BACC3EE91F064BEB001F5132 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BACC3F0D1F0B8040001F5132 /* HomePage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HomePage.xcassets; sourceTree = "<group>"; };
+		BACC3F1E1F0F25A9001F5132 /* NewsBasicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsBasicInfo.h; sourceTree = "<group>"; };
+		BACC3F1F1F0F25A9001F5132 /* NewsBasicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsBasicInfo.m; sourceTree = "<group>"; };
 		C92C4D3E1F03F4DB004522F1 /* ZNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92C4D411F03F4DB004522F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C92C4D421F03F4DB004522F1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -126,16 +132,7 @@
 		BACC3E9A1F05D628001F5132 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				BACC3EB31F063348001F5132 /* tabbar_icon_importantNews_highlight_15x20_@2x.png */,
-				BACC3EB41F063348001F5132 /* tabbar_icon_importantNews_normal_15x20_@2x.png */,
-				BACC3EB51F063348001F5132 /* tabbar_icon_live_highlight_20x17_@2x.png */,
-				BACC3EB61F063348001F5132 /* tabbar_icon_live_normal_20x17_@2x.png */,
-				BACC3EB71F063348001F5132 /* tabbar_icon_me_highlight_19x19_@2x.png */,
-				BACC3EB81F063348001F5132 /* tabbar_icon_me_normal_19x19_@2x.png */,
-				BACC3EB91F063348001F5132 /* tabbar_icon_news_highlight_41x53_@2x.png */,
-				BACC3EBA1F063348001F5132 /* tabbar_icon_news_normal_41x53_@2x.png */,
-				BACC3EBB1F063348001F5132 /* tabbar_icon_video_highlight_19x19_@2x.png */,
-				BACC3EBC1F063348001F5132 /* tabbar_icon_video_normal_19x19_@2x.png */,
+				BACC3F1C1F0F20C1001F5132 /* TabbarImage */,
 				C92C4D4A1F03F4DB004522F1 /* Assets.xcassets */,
 				C9D11CC81F054C7E00CED71B /* TabBarImage.xcassets */,
 				C931F1461F07E189005805EF /* Me.xcassets */,
@@ -189,6 +186,8 @@
 				BACC3EB01F05F024001F5132 /* ZHomePageViewController.m */,
 				C94CEE491F0E90650004EFAF /* NewsCell.h */,
 				C94CEE4A1F0E90650004EFAF /* NewsCell.m */,
+				BAC1F8A21F0F335D000A4D12 /* NewsTableViewDataSource.h */,
+				BAC1F8A31F0F335D000A4D12 /* NewsTableViewDataSource.m */,
 			);
 			name = HomePage;
 			sourceTree = "<group>";
@@ -253,6 +252,32 @@
 			name = Util;
 			sourceTree = "<group>";
 		};
+		BACC3F1C1F0F20C1001F5132 /* TabbarImage */ = {
+			isa = PBXGroup;
+			children = (
+				BACC3EB31F063348001F5132 /* tabbar_icon_importantNews_highlight_15x20_@2x.png */,
+				BACC3EB41F063348001F5132 /* tabbar_icon_importantNews_normal_15x20_@2x.png */,
+				BACC3EB51F063348001F5132 /* tabbar_icon_live_highlight_20x17_@2x.png */,
+				BACC3EB61F063348001F5132 /* tabbar_icon_live_normal_20x17_@2x.png */,
+				BACC3EB71F063348001F5132 /* tabbar_icon_me_highlight_19x19_@2x.png */,
+				BACC3EB81F063348001F5132 /* tabbar_icon_me_normal_19x19_@2x.png */,
+				BACC3EB91F063348001F5132 /* tabbar_icon_news_highlight_41x53_@2x.png */,
+				BACC3EBA1F063348001F5132 /* tabbar_icon_news_normal_41x53_@2x.png */,
+				BACC3EBB1F063348001F5132 /* tabbar_icon_video_highlight_19x19_@2x.png */,
+				BACC3EBC1F063348001F5132 /* tabbar_icon_video_normal_19x19_@2x.png */,
+			);
+			name = TabbarImage;
+			sourceTree = "<group>";
+		};
+		BACC3F1D1F0F255F001F5132 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BACC3F1E1F0F25A9001F5132 /* NewsBasicInfo.h */,
+				BACC3F1F1F0F25A9001F5132 /* NewsBasicInfo.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		C92C4D351F03F4DB004522F1 = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +299,7 @@
 		C92C4D401F03F4DB004522F1 /* ZNews */ = {
 			isa = PBXGroup;
 			children = (
+				BACC3F1D1F0F255F001F5132 /* Models */,
 				C94CEE481F0E8E370004EFAF /* NetWorking */,
 				BACC3EDF1F06413C001F5132 /* Util */,
 				BACC3E9B1F05D642001F5132 /* Controllers */,
@@ -430,6 +456,7 @@
 				BACC3ED31F063512001F5132 /* ZMeViewController.m in Sources */,
 				BACC3EB11F05F024001F5132 /* ZHomePageViewController.m in Sources */,
 				BACC3EDA1F0637BA001F5132 /* ZViewController.m in Sources */,
+				BACC3F201F0F25A9001F5132 /* NewsBasicInfo.m in Sources */,
 				BACC3ED61F063520001F5132 /* ZVideoViewController.m in Sources */,
 				C9D11CCF1F06966000CED71B /* LoginView.m in Sources */,
 				C931F1431F07C088005805EF /* MeTableviewDataSource.m in Sources */,
@@ -440,6 +467,7 @@
 				C92C4D511F03F4DB004522F1 /* main.m in Sources */,
 				C9C86AF11F090FE300F1ED3F /* MeArticalFuncTableViewCell.m in Sources */,
 				C92C4D431F03F4DB004522F1 /* AppDelegate.m in Sources */,
+				BAC1F8A41F0F335E000A4D12 /* NewsTableViewDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
