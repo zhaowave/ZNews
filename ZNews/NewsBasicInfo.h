@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface NewsBasicInfo : NSObject
+#import <WCDB/WCDB.h>
+#import "ZDatabase.h"
+@interface NewsBasicInfo : NSObject <WCTTableCoding>
 
 @property (strong ,nonatomic) NSString          *Id;
 @property (strong ,nonatomic) NSString          *uinnick;
@@ -16,9 +17,83 @@
 @property (strong ,nonatomic) NSString          *longTitle;
 @property (strong ,nonatomic) NSString          *source;
 @property (strong ,nonatomic) NSString          *surl;
-@property (strong ,nonatomic) NSString          *shortUrl;
+@property (strong ,nonatomic) NSString          *short_url;
 @property (strong ,nonatomic) NSString          *url;
-@property (strong ,nonatomic) NSArray          *thumbnails;
+@property (strong ,nonatomic) NSArray           *thumbnails;
+@property (strong ,nonatomic) NSArray           *thumbnails_big;
+@property (strong ,nonatomic) NSArray           *thumbnails_qqnews;
+@property (strong ,nonatomic) NSArray           *thumbnails_qqnews_photo;
+@property (strong ,nonatomic) NSArray           *bigImage;
+@property (nonatomic, assign) long              timestamp;
+@property (nonatomic, assign) long              imagecount;
+@property (nonatomic, assign) long              pushCommentCount;
+@property (assign ,nonatomic) long              show_expr;
+@property (assign ,nonatomic) long              openAds;
+@property (assign ,nonatomic) long              openAdsText;
+@property (assign ,nonatomic) long              openAdsComment;
+@property (assign ,nonatomic) long              openAdsPhotos;
+@property (strong ,nonatomic) NSString          *articletype;
+@property (strong ,nonatomic) NSString          *media_id;
+@property (strong ,nonatomic) NSString          *showType_video;
+@property (strong ,nonatomic) NSString          *qishu;
+@property (strong ,nonatomic) NSString          *comment;
+@property (strong ,nonatomic) NSString          *commentPlacementId;
+@property (strong ,nonatomic) NSString          *flag;
+@property (strong ,nonatomic) NSString          *showType;
+@property (strong ,nonatomic) NSString          *voteId;
+@property (strong ,nonatomic) NSString          *voteNum;
+@property (strong ,nonatomic) NSString          *weiboid;
+@property (strong ,nonatomic) NSString          *abstract;
+@property (strong ,nonatomic) NSString          *graphicLiveID;
+@property (strong ,nonatomic) NSString          *specialID;
+
+@property (strong ,nonatomic) NSString          *realChlName;
+@property (strong ,nonatomic) NSString          *seq_no;
+@property (strong ,nonatomic) NSString          *reasonInfo;
+@property (strong ,nonatomic) NSString          *a_ver;
+
+WCDB_PROPERTY(Id)
+WCDB_PROPERTY(uinnick)
+WCDB_PROPERTY(title)
+WCDB_PROPERTY(longTitle)
+WCDB_PROPERTY(source)
+WCDB_PROPERTY(url)
+WCDB_PROPERTY(surl)
+WCDB_PROPERTY(short_url)
+WCDB_PROPERTY(thumbnails)
+WCDB_PROPERTY(thumbnails_big)
+WCDB_PROPERTY(thumbnails_qqnews)
+WCDB_PROPERTY(thumbnails_qqnews_photo)
+WCDB_PROPERTY(bigImage)
+WCDB_PROPERTY(timestamp)
+WCDB_PROPERTY(imagecount)
+WCDB_PROPERTY(pushCommentCount)
+WCDB_PROPERTY(openAds)
+WCDB_PROPERTY(openAdsText)
+WCDB_PROPERTY(openAdsComment)
+WCDB_PROPERTY(openAdsPhotos)
+WCDB_PROPERTY(articletype)
+WCDB_PROPERTY(media_id)
+WCDB_PROPERTY(showType_video)
+WCDB_PROPERTY(qishu)
+WCDB_PROPERTY(comment)
+WCDB_PROPERTY(commentPlacementId)
+WCDB_PROPERTY(flag)
+WCDB_PROPERTY(showType)
+WCDB_PROPERTY(voteId)
+WCDB_PROPERTY(voteNum)
+WCDB_PROPERTY(weiboid)
+WCDB_PROPERTY(abstract)
+WCDB_PROPERTY(graphicLiveID)
+WCDB_PROPERTY(specialID)
+WCDB_PROPERTY(realChlName)
+WCDB_PROPERTY(seq_no)
+WCDB_PROPERTY(reasonInfo)
+WCDB_PROPERTY(a_ver)
+
+- (void) createTable;
+- (bool) insertObject:(id)object into:(NSString*)name;
+- (NSArray*) getNewsInfoFormDB;
 @end
 
 //{

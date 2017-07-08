@@ -8,4 +8,7 @@ pod 'FMDB'
 pod 'MBProgressHUD', '~> 1.0.0'
 pod 'Masonry'
 pod 'OneAPM', '~> 2.2.4.0'
+pod 'SDWebImage', '~>3.8'
+pod 'MJRefresh'
+pod 'WCDB'
 end

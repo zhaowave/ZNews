@@ -19,7 +19,12 @@ PODS:
   - FMDB/standard (2.7.2)
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
+  - MJRefresh (3.1.12)
   - OneAPM (2.2.4.3)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - WCDB (1.0.2)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
@@ -27,7 +32,10 @@ DEPENDENCIES:
   - FMDB
   - Masonry
   - MBProgressHUD (~> 1.0.0)
+  - MJRefresh
   - OneAPM (~> 2.2.4.0)
+  - SDWebImage (~> 3.8)
+  - WCDB
   - YYModel
 
 SPEC CHECKSUMS:
@@ -35,9 +43,12 @@ SPEC CHECKSUMS:
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   OneAPM: 5d94e9a36e0c5ea73d89406ef064a8ba89a52fce
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  WCDB: 78aff489677b50a4f2ebbf4df4bab5116c9665b1
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: e5946b76b41535fcf9eb0c16c22bb5bcdc292236
+PODFILE CHECKSUM: 455c2cc7249a79448766773ddc60a2ddf6460499
 
 COCOAPODS: 1.1.1
