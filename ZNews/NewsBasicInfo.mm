@@ -64,8 +64,8 @@ WCDB_PRIMARY(NewsBasicInfo, Id)
     WCTDatabase *database = [[ZDatabase sharedZDatabase] getDatabase];
     return [database insertObject:object into:name];
 }
-
-- (NSArray*) getNewsInfoFormDB {
+//从数据库取20条新闻 展示
+- (NSArray*) getNewsInfoFromDB {
     //NSArray<Message *> *message = [database getObjectsOfClass:Message.class
                                                     //fromTable:@"message"
                                                       //orderBy:Message.localID.order()];
@@ -76,9 +76,43 @@ WCDB_PRIMARY(NewsBasicInfo, Id)
     return nil;
 }
 
+- (void) queryNewsWithCallback:(GetNewsList) callback {
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSURL *URL = [NSURL URLWithString:NEWSURL];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    NSMutableArray *newsArray = [NSMutableArray new];
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+            callback(nil,error);
+        } else {
+            //NSLog(@"%@ %@", response, responseObject);
+            NSArray *newsLists = responseObject[@"newslist"];
+            if (newsLists.count == 0) {
+                callback(nil,error);
+            }
+            for (NSDictionary *news in newsLists) {
+                NewsBasicInfo *info = [NewsBasicInfo yy_modelWithDictionary:news];
+                [info createTable];
+                bool success = [info insertObject:info into:@"NewsBasicInfo"];
+                if(success)
+                    [newsArray insertObject:info atIndex:0];
+                NSLog(@"%@",info);
+            }
+            callback(newsArray, error);
+        }
+    }];
+    [dataTask resume];
+}
+
+
+
 + (NSDictionary *)modelCustomPropertyMapper {
     return @{@"Id" : @"id"
              };
 }
+
 
 @end

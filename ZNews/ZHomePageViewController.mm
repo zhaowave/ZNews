@@ -28,7 +28,7 @@
     [self updateNavigationItems];
     [self createTableView];
     _newsArray = [NSMutableArray new];
-    [_newsArray addObjectsFromArray:[[NewsBasicInfo new] getNewsInfoFormDB]];
+    [_newsArray addObjectsFromArray:[[NewsBasicInfo new] getNewsInfoFromDB]];
     _dataSource.newsLists = _newsArray;
 }
 
@@ -83,39 +83,16 @@
 }
 
 - (void) getNewsLists {
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
-    NSURL *URL = [NSURL URLWithString:@"http://r.inews.qq.com/getQQNewsUnreadList?store=1&apptype=ios&__qnr=1f0f1ee4f0b8&activefrom=icon&omgid=5c70eb6ca10ccc416d99e15a5b285ea9ea0c0010112107&idfa=CD72C779-D2E1-494E-ACB8-69192D1CC413&startarticleid=&global_info=0%7C&appver=11.0_qqnews_5.3.7&network_type=gsm_4g&qqnews_refpage=CNewsDetailViewController&omgbizid=fbd4009c7959824bcac8cb73062f8d2e03ab0060112601&screen_height=667&devid=9BED6638-EF2B-46DB-8CDF-672FE6AB327B&screen_scale=2&screen_width=375&isJailbreak=0&device_model=iPhone9%2C1"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-    //NSMutableArray *newsArray = [NSMutableArray new];
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+    [[NewsBasicInfo new] queryNewsWithCallback:^(NSMutableArray *newsArray, NSError *error) {
         if (error) {
-            NSLog(@"Error: %@", error);
+            NSLog(@"%@",error);
         } else {
-            NSLog(@"%@ %@", response, responseObject);
-            NSArray *newsLists = responseObject[@"newslist"];
-            if (newsLists.count == 0) {
-                return;
-            }
-            for (NSDictionary *news in newsLists) {
-                NewsBasicInfo *info = [NewsBasicInfo yy_modelWithDictionary:news];
-                [info createTable];
-                bool success = [info insertObject:info into:@"NewsBasicInfo"];
-                if(success)
-                    [_newsArray insertObject:info atIndex:0];
-                NSLog(@"%@",info);
-            }
-            
-            _dataSource.newsLists = _newsArray;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [_newsTableView.mj_header endRefreshing];
-                [_newsTableView reloadData];
-            });
-            
+             NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndexesInRange: NSMakeRange(0, newsArray.count)];
+            [_newsArray insertObjects:newsArray atIndexes:indexSet];
+            [_newsTableView.mj_header endRefreshing];
+            [_newsTableView reloadData];
         }
     }];
-    [dataTask resume];
 }
 
 - (void)didReceiveMemoryWarning {

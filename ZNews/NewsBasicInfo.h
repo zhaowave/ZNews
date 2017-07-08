@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <WCDB/WCDB.h>
 #import "ZDatabase.h"
+
+typedef void(^GetNewsList)(NSMutableArray *newsArray, NSError *error);
+
 @interface NewsBasicInfo : NSObject <WCTTableCoding>
 
 @property (strong ,nonatomic) NSString          *Id;
@@ -93,7 +96,9 @@ WCDB_PROPERTY(a_ver)
 
 - (void) createTable;
 - (bool) insertObject:(id)object into:(NSString*)name;
-- (NSArray*) getNewsInfoFormDB;
+- (NSArray*) getNewsInfoFromDB;
+
+- (void) queryNewsWithCallback:(GetNewsList) callback;
 @end
 
 //{
