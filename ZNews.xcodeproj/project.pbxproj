@@ -24,7 +24,7 @@
 		BACC3ECD1F0634EE001F5132 /* ZImportantNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACC3ECC1F0634EE001F5132 /* ZImportantNewsViewController.m */; };
 		BACC3ED01F063505001F5132 /* ZLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACC3ECF1F063505001F5132 /* ZLiveViewController.m */; };
 		BACC3ED31F063512001F5132 /* ZMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACC3ED21F063512001F5132 /* ZMeViewController.m */; };
-		BACC3ED61F063520001F5132 /* ZVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACC3ED51F063520001F5132 /* ZVideoViewController.m */; };
+		BACC3ED61F063520001F5132 /* ZVideoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BACC3ED51F063520001F5132 /* ZVideoViewController.mm */; };
 		BACC3EDA1F0637BA001F5132 /* ZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACC3ED91F0637BA001F5132 /* ZViewController.m */; };
 		BACC3EE21F0641B7001F5132 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = BACC3EE11F0641B7001F5132 /* UIColor+HexString.m */; };
 		BACC3EEA1F064BEB001F5132 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BACC3EE61F064BEB001F5132 /* LaunchScreen.storyboard */; };
@@ -39,6 +39,8 @@
 		C94CEE4B1F0E90650004EFAF /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C94CEE4A1F0E90650004EFAF /* NewsCell.m */; };
 		C95ADB0D1F10B58C00EF925D /* ZDatabase.mm in Sources */ = {isa = PBXBuildFile; fileRef = C95ADB0C1F10B58C00EF925D /* ZDatabase.mm */; };
 		C95EDE671F0FD3C600FF4158 /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C95EDE661F0FD3C600FF4158 /* NewsDetailViewController.m */; };
+		C98453F71F126A2C00E96186 /* VideoNews.mm in Sources */ = {isa = PBXBuildFile; fileRef = C98453F61F126A2C00E96186 /* VideoNews.mm */; };
+		C98453FA1F12720700E96186 /* Networking.m in Sources */ = {isa = PBXBuildFile; fileRef = C98453F91F12720700E96186 /* Networking.m */; };
 		C9C86AF11F090FE300F1ED3F /* MeArticalFuncTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C86AF01F090FE300F1ED3F /* MeArticalFuncTableViewCell.m */; };
 		C9C86AF31F09305400F1ED3F /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9C86AF21F09305400F1ED3F /* data.plist */; };
 		C9D11CC91F054C7E00CED71B /* TabBarImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9D11CC81F054C7E00CED71B /* TabBarImage.xcassets */; };
@@ -69,7 +71,7 @@
 		BACC3ED11F063512001F5132 /* ZMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMeViewController.h; sourceTree = "<group>"; };
 		BACC3ED21F063512001F5132 /* ZMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMeViewController.m; sourceTree = "<group>"; };
 		BACC3ED41F063520001F5132 /* ZVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZVideoViewController.h; sourceTree = "<group>"; };
-		BACC3ED51F063520001F5132 /* ZVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZVideoViewController.m; sourceTree = "<group>"; };
+		BACC3ED51F063520001F5132 /* ZVideoViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZVideoViewController.mm; sourceTree = "<group>"; };
 		BACC3ED81F0637BA001F5132 /* ZViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZViewController.h; sourceTree = "<group>"; };
 		BACC3ED91F0637BA001F5132 /* ZViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZViewController.m; sourceTree = "<group>"; };
 		BACC3EDB1F063820001F5132 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -95,6 +97,10 @@
 		C95ADB0C1F10B58C00EF925D /* ZDatabase.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ZDatabase.mm; sourceTree = "<group>"; };
 		C95EDE651F0FD3C600FF4158 /* NewsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
 		C95EDE661F0FD3C600FF4158 /* NewsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
+		C98453F51F126A2C00E96186 /* VideoNews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoNews.h; sourceTree = "<group>"; };
+		C98453F61F126A2C00E96186 /* VideoNews.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoNews.mm; sourceTree = "<group>"; };
+		C98453F81F12720700E96186 /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
+		C98453F91F12720700E96186 /* Networking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Networking.m; sourceTree = "<group>"; };
 		C9C86AEF1F090FE300F1ED3F /* MeArticalFuncTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeArticalFuncTableViewCell.h; sourceTree = "<group>"; };
 		C9C86AF01F090FE300F1ED3F /* MeArticalFuncTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeArticalFuncTableViewCell.m; sourceTree = "<group>"; };
 		C9C86AF21F09305400F1ED3F /* data.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
@@ -222,7 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				BACC3ED41F063520001F5132 /* ZVideoViewController.h */,
-				BACC3ED51F063520001F5132 /* ZVideoViewController.m */,
+				BACC3ED51F063520001F5132 /* ZVideoViewController.mm */,
 			);
 			name = Video;
 			sourceTree = "<group>";
@@ -282,6 +288,8 @@
 			children = (
 				BACC3F1E1F0F25A9001F5132 /* NewsBasicInfo.h */,
 				BACC3F1F1F0F25A9001F5132 /* NewsBasicInfo.mm */,
+				C98453F51F126A2C00E96186 /* VideoNews.h */,
+				C98453F61F126A2C00E96186 /* VideoNews.mm */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -321,6 +329,8 @@
 		C94CEE481F0E8E370004EFAF /* NetWorking */ = {
 			isa = PBXGroup;
 			children = (
+				C98453F81F12720700E96186 /* Networking.h */,
+				C98453F91F12720700E96186 /* Networking.m */,
 			);
 			path = NetWorking;
 			sourceTree = "<group>";
@@ -475,11 +485,13 @@
 				BACC3EB11F05F024001F5132 /* ZHomePageViewController.mm in Sources */,
 				BACC3EDA1F0637BA001F5132 /* ZViewController.m in Sources */,
 				BACC3F201F0F25A9001F5132 /* NewsBasicInfo.mm in Sources */,
-				BACC3ED61F063520001F5132 /* ZVideoViewController.m in Sources */,
+				BACC3ED61F063520001F5132 /* ZVideoViewController.mm in Sources */,
 				C9D11CCF1F06966000CED71B /* LoginView.m in Sources */,
 				C95EDE671F0FD3C600FF4158 /* NewsDetailViewController.m in Sources */,
 				C931F1431F07C088005805EF /* MeTableviewDataSource.m in Sources */,
 				BACC3ECD1F0634EE001F5132 /* ZImportantNewsViewController.m in Sources */,
+				C98453F71F126A2C00E96186 /* VideoNews.mm in Sources */,
+				C98453FA1F12720700E96186 /* Networking.m in Sources */,
 				BACC3EAE1F05EC0B001F5132 /* ZMainTabBarController.m in Sources */,
 				C95ADB0D1F10B58C00EF925D /* ZDatabase.mm in Sources */,
 				BACC3EE21F0641B7001F5132 /* UIColor+HexString.m in Sources */,

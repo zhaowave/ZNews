@@ -35,7 +35,89 @@
 
 #define THIRD_PARTY_LOGIN_TEXT_SIZE 14
 
+//腾讯新闻
 #define NEWSURL @"http://r.inews.qq.com/getQQNewsUnreadList?store=1&apptype=ios&__qnr=1f0f1ee4f0b8&activefrom=icon&omgid=5c70eb6ca10ccc416d99e15a5b285ea9ea0c0010112107&idfa=CD72C779-D2E1-494E-ACB8-69192D1CC413&startarticleid=&global_info=0%7C&appver=11.0_qqnews_5.3.7&network_type=gsm_4g&qqnews_refpage=CNewsDetailViewController&omgbizid=fbd4009c7959824bcac8cb73062f8d2e03ab0060112601&screen_height=667&devid=9BED6638-EF2B-46DB-8CDF-672FE6AB327B&screen_scale=2&screen_width=375&isJailbreak=0&device_model=iPhone9%2C1"
+
+//今日头条视频
+#define VIDEONEWSURL @"http://is.snssdk.com/api/news/feed/v54/?version_code=6.1.9&app_name=news_article&vid=6D5EC981-3F7A-4557-ADD7-E0F6AA76F2F1&device_id=34779933656&channel=App%20Store&resolution=750*1334&aid=13&ab_version=145820,145248,122834,143763,144447,128825,134128,139275,143824,140593,140064,147308,125502,125174,144445,147121,146838,122948,31243,147345,146509,131207,145585,146898,141573&ab_feature=z2&ab_group=z2&openudid=ba5c5ce2b726ebd90e2680b9b39e0ce323f0975a&live_sdk_version=1.6.5&idfv=6D5EC981-3F7A-4557-ADD7-E0F6AA76F2F1&ac=WIFI&os_version=11.0&ssmix=a&device_platform=iphone&iid=11779828406&ab_client=a1,f2,f7,e1&device_type=iPhone%207&idfa=CD72C779-D2E1-494E-ACB8-69192D1CC413&LBS_status=authroize&category=video&city=%E5%8C%97%E4%BA%AC&concern_id=&count=20&cp=5e956301E0A39q1&detail=1&image=1&language=zh-Hans-CN&last_refresh_sub_entrance_interval=6479&loc_mode=1&min_behot_time=1499522597&refer=1&strict=0&tt_from=pull"
+
+//单例
+#define singleton_h(classname)  + (instancetype)shared##classname;
+
+#if __has_feature(objc_arc) //arc
+
+#define singleton_m(classname) \
+static id _instance = nil; \
++(instancetype)allocWithZone:(struct _NSZone *)zone \
+{ \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+_instance = [super allocWithZone:zone]; \
+}); \
+return _instance; \
+} \
+\
++(instancetype)shared##classname \
+{ \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+_instance = [[self alloc] init]; \
+}); \
+return _instance; \
+} \
+\
++(id)copyWithZone:(struct _NSZone *)zone \
+{ \
+return _instance; \
+} \
+
+#else //非arc
+#define singleton_m(classname) \
+static id _instance = nil; \
++(instancetype)allocWithZone:(struct _NSZone *)zone \
+{ \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+_instance = [super allocWithZone:zone]; \
+}); \
+return _instance; \
+} \
+\
++(instancetype)shared##classname \
+{ \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+_instance = [[self alloc] init]; \
+}); \
+return _instance; \
+} \
+\
++(id)copyWithZone:(struct _NSZone *)zone \
+{ \
+return _instance; \
+} \
+\
+- (oneway void)release \
+{ \
+\
+} \
+\
+-(instancetype)autorelease \
+{ \
+return _instance; \
+} \
+\
+- (instancetype)retain \
+{ \
+return _instance; \
+} \
+\
+- (NSUInteger)retainCount \
+{ \
+return 1; \
+}
+
+#endif
 
 
 

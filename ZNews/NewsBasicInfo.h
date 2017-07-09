@@ -94,11 +94,16 @@ WCDB_PROPERTY(seq_no)
 WCDB_PROPERTY(reasonInfo)
 WCDB_PROPERTY(a_ver)
 
+
+@end
+
+@interface NewsService:NSObject
+
 - (void) createTable;
 - (bool) insertObject:(id)object into:(NSString*)name;
 - (NSArray*) getNewsInfoFromDB;
-
 - (void) queryNewsWithCallback:(GetNewsList) callback;
+singleton_h(NewsService);
 @end
 
 //{

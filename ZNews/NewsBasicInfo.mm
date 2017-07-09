@@ -8,6 +8,7 @@
 
 #import "NewsBasicInfo.h"
 #import "YYModel.h"
+#import "Networking.h"
 
 @implementation NewsBasicInfo
 
@@ -53,6 +54,17 @@ WCDB_SYNTHESIZE(NewsBasicInfo, a_ver)
 
 WCDB_PRIMARY(NewsBasicInfo, Id)
 
+
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"Id" : @"id"
+             };
+}
+
+@end
+@implementation NewsService
+
+singleton_m(NewsService)
+
 - (void) createTable {
     WCTDatabase *database = [[ZDatabase sharedZDatabase] getDatabase];
     if (![database isTableExists:@"NewsBasicInfo"]) {
@@ -67,36 +79,29 @@ WCDB_PRIMARY(NewsBasicInfo, Id)
 //从数据库取20条新闻 展示
 - (NSArray*) getNewsInfoFromDB {
     //NSArray<Message *> *message = [database getObjectsOfClass:Message.class
-                                                    //fromTable:@"message"
-                                                      //orderBy:Message.localID.order()];
+    //fromTable:@"message"
+    //orderBy:Message.localID.order()];
     WCTDatabase *database = [[ZDatabase sharedZDatabase] getDatabase];
     if ([database isTableExists:@"NewsBasicInfo"]) {
-        return [database getObjectsOfClass:self.class fromTable:@"NewsBasicInfo" limit:20];
+        return [database getObjectsOfClass:NewsBasicInfo.class fromTable:@"NewsBasicInfo" limit:20];
     }
     return nil;
 }
 
 - (void) queryNewsWithCallback:(GetNewsList) callback {
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
-    NSURL *URL = [NSURL URLWithString:NEWSURL];
-    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     NSMutableArray *newsArray = [NSMutableArray new];
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+    [[Networking sharedNetworking] doHttpRequestWithRequest:NEWSURL andParameter:nil withCallback:^(NSArray *responseData, NSError *error) {
         if (error) {
-            NSLog(@"Error: %@", error);
-            callback(nil,error);
+            ;
         } else {
-            //NSLog(@"%@ %@", response, responseObject);
-            NSArray *newsLists = responseObject[@"newslist"];
+            NSArray *newsLists = responseData;
             if (newsLists.count == 0) {
                 callback(nil,error);
             }
             for (NSDictionary *news in newsLists) {
                 NewsBasicInfo *info = [NewsBasicInfo yy_modelWithDictionary:news];
-                [info createTable];
-                bool success = [info insertObject:info into:@"NewsBasicInfo"];
+                [[NewsService sharedNewsService] createTable];
+                bool success = [[NewsService sharedNewsService] insertObject:info into:@"NewsBasicInfo"];
                 if(success)
                     [newsArray insertObject:info atIndex:0];
                 NSLog(@"%@",info);
@@ -104,14 +109,6 @@ WCDB_PRIMARY(NewsBasicInfo, Id)
             callback(newsArray, error);
         }
     }];
-    [dataTask resume];
-}
-
-
-
-+ (NSDictionary *)modelCustomPropertyMapper {
-    return @{@"Id" : @"id"
-             };
 }
 
 

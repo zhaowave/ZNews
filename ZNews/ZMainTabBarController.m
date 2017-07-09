@@ -32,7 +32,7 @@
                              [self createVCWithName:@"ZHomePageViewController" normalImageName:@"tabbar_icon_news_normal_41x53_@2x" HLImageName:@"tabbar_icon_news_highlight_41x53_@2x" andTitle:@"首页"],
                              [self createVCWithName:@"ZImportantNewsViewController" normalImageName:@"tabbar_icon_importantNews_normal_15x20_@2x" HLImageName:@"tabbar_icon_importantNews_highlight_15x20_@2x" andTitle:@"要闻"],
                              [self createVCWithName:@"ZLiveViewController" normalImageName:@"tabbar_icon_live_normal_20x17_@2x" HLImageName:@"tabbar_icon_live_highlight_20x17_@2x" andTitle:@"直播"],
-                             [self createVCWithName:@"ZLiveViewController" normalImageName:@"tabbar_icon_video_normal_19x19_@2x" HLImageName:@"tabbar_icon_video_highlight_19x19_@2x" andTitle:@"视频"],
+                             [self createVCWithName:@"ZVideoViewController" normalImageName:@"tabbar_icon_video_normal_19x19_@2x" HLImageName:@"tabbar_icon_video_highlight_19x19_@2x" andTitle:@"视频"],
                              [self createVCWithName:@"ZMeViewController" normalImageName:@"tabbar_icon_me_normal_19x19_@2x" HLImageName:@"tabbar_icon_me_highlight_19x19_@2x" andTitle:@"我"]
                         ];
 }

@@ -28,7 +28,7 @@
     [self updateNavigationItems];
     [self createTableView];
     _newsArray = [NSMutableArray new];
-    [_newsArray addObjectsFromArray:[[NewsBasicInfo new] getNewsInfoFromDB]];
+    [_newsArray addObjectsFromArray:[[NewsService sharedNewsService] getNewsInfoFromDB]];
     _dataSource.newsLists = _newsArray;
 }
 
@@ -83,7 +83,7 @@
 }
 
 - (void) getNewsLists {
-    [[NewsBasicInfo new] queryNewsWithCallback:^(NSMutableArray *newsArray, NSError *error) {
+    [[NewsService sharedNewsService] queryNewsWithCallback:^(NSMutableArray *newsArray, NSError *error) {
         if (error) {
             NSLog(@"%@",error);
         } else {
