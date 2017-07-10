@@ -3,3 +3,9 @@
 *.xcuserstate
 *.xcuserstate
 *.xcbkptlist
+Pods/Pods.xcodeproj/xcuserdata/kfzx-version.xcuserdatad/xcschemes/WCDB.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/kfzx-version.xcuserdatad/xcschemes/MJRefresh.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/kfzx-version.xcuserdatad/xcschemes/SDWebImage.xcscheme
+ZNews.xcworkspace/xcuserdata/kfzx-version.xcuserdatad/UserInterfaceState.xcuserstate
+ZNews.xcworkspace/xcuserdata/kfzx-version.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+Pods/Pods.xcodeproj/xcuserdata/kfzx-version.xcuserdatad/xcschemes/xcschememanagement.plist
