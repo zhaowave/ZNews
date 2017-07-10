@@ -7,7 +7,8 @@
 //
 
 #import "ZViewController.h"
+#import <WebKit/WebKit.h>
 
-@interface NewsDetailViewController : ZViewController
+@interface NewsDetailViewController : ZViewController<WKNavigationDelegate>
 @property (nonatomic, strong) NSString *requestURLString;
 @end
