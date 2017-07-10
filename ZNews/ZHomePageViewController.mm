@@ -16,6 +16,7 @@
     UITableView *_newsTableView;
     NewsTableViewDataSource *_dataSource;
     NSMutableArray *_newsArray;
+    UIButton *_refreshButton;
     
 }
 
@@ -25,11 +26,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self refreshButton];
     [self updateNavigationItems];
     [self createTableView];
-    _newsArray = [NSMutableArray new];
-    [_newsArray addObjectsFromArray:[[NewsService sharedNewsService] getNewsInfoFromDB]];
-    _dataSource.newsLists = _newsArray;
+    [self addDataSource];
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -51,6 +52,20 @@
     [imageView startAnimating];
 }
 
+- (void) refreshButton {
+    _refreshButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH/5, self.tabBarController.tabBar.frame.size.height)];
+    _refreshButton.backgroundColor = [UIColor clearColor];
+    [self.tabBarController.tabBar addSubview:_refreshButton];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(getNewsLists)];
+    [_refreshButton addGestureRecognizer:tapGesture];
+}
+
+- (void) addDataSource {
+    _newsArray = [NSMutableArray new];
+    [_newsArray addObjectsFromArray:[[NewsService sharedNewsService] getNewsInfoFromDB]];
+    _dataSource.newsLists = _newsArray;
+}
+
 - (void) updateNavigationItems {
     UIImageView *titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navigation_logo"]];
     self.navigationItem.titleView = titleView;
@@ -64,7 +79,7 @@
 
 - (void) createTableView {
     CGRect frame = self.view.frame;
-    frame.origin.y = 0-32;
+    frame.origin.y = 0;
     _newsTableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStyleGrouped];
     _newsTableView.backgroundColor = [UIColor colorWithHexString:@"f5f5f9"];
     _dataSource = [NewsTableViewDataSource new];
