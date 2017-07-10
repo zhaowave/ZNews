@@ -24,6 +24,7 @@
 
 - (void) addNewsWebView {
     _newsWebView = [[WKWebView alloc] initWithFrame:self.view.frame];
+    _newsWebView.allowsLinkPreview = YES;
     _newsWebView.navigationDelegate = self;
     [self.view addSubview:_newsWebView];
     [_newsWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.requestURLString]]];
@@ -150,6 +151,27 @@
  */
 - (void)webViewWebContentProcessDidTerminate:(WKWebView *)webView API_AVAILABLE(macosx(10.11), ios(9.0)){
     NSLog(@"webViewWebContentProcessDidTerminate");
+}
+
+
+- (NSArray<id<UIPreviewActionItem>> *)previewActionItems {
+    // setup a list of preview actions
+    UIPreviewAction *action1 = [UIPreviewAction actionWithTitle:@"Aciton1" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"Aciton1");
+    }];
+    
+    UIPreviewAction *action2 = [UIPreviewAction actionWithTitle:@"Aciton2" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"Aciton2");
+    }];
+    
+    UIPreviewAction *action3 = [UIPreviewAction actionWithTitle:@"Aciton3" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"Aciton3");
+    }];
+    
+    NSArray *actions = @[action1,action2,action3];
+    
+    // and return them (return the array of actions instead to see all items ungrouped)
+    return actions;
 }
 
 @end

@@ -12,8 +12,8 @@
 #import "NewsTableViewDataSource.h"
 #import "YYModel.h"
 
-@interface ZHomePageViewController ()<DataSourceDelegate>{
-    UITableView *_newsTableView;
+@interface ZHomePageViewController ()<UIViewControllerPreviewing>{
+    
     NewsTableViewDataSource *_dataSource;
     NSMutableArray *_newsArray;
     UIButton *_refreshButton;
@@ -30,7 +30,7 @@
     [self updateNavigationItems];
     [self createTableView];
     [self addDataSource];
-    
+    //[self registerForPreviewingWithDelegate:<#(nonnull id<UIViewControllerPreviewingDelegate>)#> sourceView:self.view];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -85,8 +85,7 @@
     _dataSource = [NewsTableViewDataSource new];
     _newsTableView.delegate = _dataSource;
     _newsTableView.dataSource = _dataSource;
-    __weak typeof(self) weakSelf = self;
-    _dataSource.delegate = weakSelf;
+    _dataSource.hpVC = self;
     _newsTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^ {
         [self getNewsLists];
     }];

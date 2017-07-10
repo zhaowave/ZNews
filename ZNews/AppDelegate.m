@@ -20,6 +20,7 @@
     // Override point for customization after application launch.
     ZMainTabBarController *zTabBarContrller = [ZMainTabBarController new];
     [zTabBarContrller.navigationController setNavigationBarHidden:YES animated:NO];
+    self.tabBarController = zTabBarContrller;
     self.window.rootViewController = zTabBarContrller;
     [self.window makeKeyAndVisible];
     return YES;

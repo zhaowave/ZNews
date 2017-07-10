@@ -2,18 +2,14 @@
 //  NewsTableViewDataSource.h
 //  ZNews
 //
-//  Created by kfzx-version on 2017/7/7.
+//  Created by zhaowei on 2017/7/7.
 //  Copyright © 2017年 wei zhao. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+@class ZHomePageViewController;
 
-@protocol DataSourceDelegate
--(void) pushVC:(id)vc;
-
-@end
-
-@interface NewsTableViewDataSource : NSObject <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UIViewControllerPreviewing>
-@property (nonatomic,weak) id <DataSourceDelegate> delegate;
+@interface NewsTableViewDataSource : NSObject <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UIViewControllerPreviewingDelegate>
+@property (nonatomic,weak) ZHomePageViewController *hpVC;
 @property (nonatomic, strong) NSArray *newsLists;
 @end

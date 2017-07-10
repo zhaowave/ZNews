@@ -10,6 +10,8 @@
 #import "NewsDetailViewController.h"
 #import "NewsCell.h"
 #import "NewsBasicInfo.h"
+#import "AppDelegate.h"
+#import "ZHomePageViewController.h"
 
 @implementation NewsTableViewDataSource
 
@@ -32,7 +34,11 @@
     [cell.thumbNail setIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [cell.thumbNail sd_setImageWithURL:[NSURL URLWithString:data.thumbnails[0]]];
     cell.newsSource.text = data.source;
-    //[self registerForPreviewingWithDelegate:self sourceView:cell];
+    if ([_hpVC respondsToSelector:@selector(traitCollection)]) {
+        if ([_hpVC traitCollection].forceTouchCapability == UIForceTouchCapabilityAvailable) {
+            [_hpVC registerForPreviewingWithDelegate:self sourceView:cell];
+        }
+    }
     return cell;
 }
 
@@ -53,16 +59,21 @@
     NewsBasicInfo *data = _newsLists[indexPath.row];
     newsDetailVC.requestURLString = data.url;
     [ZNavigator navigateTo:@"NewsDetailViewController" withData:@{@"url":data.url}];
-    //[_delegate pushVC:newsDetailVC];
 }
 
 #pragma mark UIViewControllerPreviewing
-//- (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
-//    return nil;
-//    
-//}
-//- (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit NS_AVAILABLE_IOS(9_0) {
-//
-//}
+- (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
+    NewsDetailViewController *detailVC = [NewsDetailViewController new];
+    NSIndexPath *indexPath = [_hpVC.newsTableView indexPathForCell:(UITableViewCell* )[previewingContext sourceView]];
+    NewsBasicInfo *news = _newsLists[indexPath.row];
+    detailVC.requestURLString = news.url;
+    detailVC.preferredContentSize = CGSizeMake(0.0f,500.0f);
+    
+    return detailVC;
+    
+}
+- (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit NS_AVAILABLE_IOS(9_0) {
+    [_hpVC showViewController:viewControllerToCommit sender:_hpVC];
+}
 
 @end

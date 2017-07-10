@@ -7,6 +7,7 @@
 //
 
 #import "ZNavigator.h"
+#import "AppDelegate.h"
 #import "ZViewController.h"
 
 @implementation ZNavigator
@@ -26,6 +27,10 @@ singleton_m(ZNavigator);
 - (void) navigateTo:(NSString*)viewController withData:(NSMutableDictionary *)param {
     ZViewController *classObject = (ZViewController*)[NSClassFromString(viewController) new];
     classObject.param = param;
+    AppDelegate *delegate = (AppDelegate *)([UIApplication sharedApplication].delegate);
+    UINavigationController *nav = [delegate.tabBarController selectedViewController];
+    nav.tabBarController.tabBar.hidden = YES;
+    self.nav = nav;
     [self.nav pushViewController:classObject animated:YES];
 }
 

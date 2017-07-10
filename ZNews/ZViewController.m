@@ -27,10 +27,11 @@
     else{
         [self.navigationController.navigationBar setTintColor:CUSTOMER_RED];
     }
-    
-//    self.navigationController.navigationBar.backgroundColor = ;
-//    self.navigationController.navigationBar.tintColor = [UIColor colorWithHexString:CUSTOMER_RED];
-    // Do any additional setup after loading the view.
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    //self.navigationController.tabBarController.tabBar.hidden = 
 }
 
 - (void)didReceiveMemoryWarning {

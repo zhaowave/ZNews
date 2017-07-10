@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "ZViewController.h"
 @interface ZHomePageViewController : ZViewController
-
+@property (nonatomic, strong) UITableView *newsTableView;
 @end

@@ -37,6 +37,8 @@
 
 #define THIRD_PARTY_LOGIN_TEXT_SIZE 14
 
+#define APPLICATIONDELEGATE [UIApplication sharedApplication].delegate
+
 //腾讯新闻
 #define NEWSURL @"http://r.inews.qq.com/getQQNewsUnreadList?store=1&apptype=ios&__qnr=1f0f1ee4f0b8&activefrom=icon&omgid=5c70eb6ca10ccc416d99e15a5b285ea9ea0c0010112107&idfa=CD72C779-D2E1-494E-ACB8-69192D1CC413&startarticleid=&global_info=0%7C&appver=11.0_qqnews_5.3.7&network_type=gsm_4g&qqnews_refpage=CNewsDetailViewController&omgbizid=fbd4009c7959824bcac8cb73062f8d2e03ab0060112601&screen_height=667&devid=9BED6638-EF2B-46DB-8CDF-672FE6AB327B&screen_scale=2&screen_width=375&isJailbreak=0&device_model=iPhone9%2C1"
 
