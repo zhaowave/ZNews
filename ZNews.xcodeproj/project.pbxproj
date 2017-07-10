@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8C88319FD3BE9CB4E8E08B9D /* libPods-ZNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3433314682307CBE85DF3C /* libPods-ZNews.a */; };
+		BA3F57F31F136A7300512592 /* ZNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3F57F21F136A7300512592 /* ZNavigator.m */; };
 		BAC1F8A41F0F335E000A4D12 /* NewsTableViewDataSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = BAC1F8A31F0F335D000A4D12 /* NewsTableViewDataSource.mm */; };
 		BACC3EAE1F05EC0B001F5132 /* ZMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACC3EAD1F05EC0B001F5132 /* ZMainTabBarController.m */; };
 		BACC3EB11F05F024001F5132 /* ZHomePageViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BACC3EB01F05F024001F5132 /* ZHomePageViewController.mm */; };
@@ -48,6 +49,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA3F57F11F136A7300512592 /* ZNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNavigator.h; sourceTree = "<group>"; };
+		BA3F57F21F136A7300512592 /* ZNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNavigator.m; sourceTree = "<group>"; };
 		BAC1F8A21F0F335D000A4D12 /* NewsTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewDataSource.h; sourceTree = "<group>"; };
 		BAC1F8A31F0F335D000A4D12 /* NewsTableViewDataSource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NewsTableViewDataSource.mm; sourceTree = "<group>"; };
 		BACC3EAC1F05EC0B001F5132 /* ZMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMainTabBarController.h; sourceTree = "<group>"; };
@@ -262,6 +265,8 @@
 			children = (
 				BACC3EE01F0641B7001F5132 /* UIColor+HexString.h */,
 				BACC3EE11F0641B7001F5132 /* UIColor+HexString.m */,
+				BA3F57F11F136A7300512592 /* ZNavigator.h */,
+				BA3F57F21F136A7300512592 /* ZNavigator.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -494,6 +499,7 @@
 				C98453FA1F12720700E96186 /* Networking.m in Sources */,
 				BACC3EAE1F05EC0B001F5132 /* ZMainTabBarController.m in Sources */,
 				C95ADB0D1F10B58C00EF925D /* ZDatabase.mm in Sources */,
+				BA3F57F31F136A7300512592 /* ZNavigator.m in Sources */,
 				BACC3EE21F0641B7001F5132 /* UIColor+HexString.m in Sources */,
 				C94CEE4B1F0E90650004EFAF /* NewsCell.m in Sources */,
 				C92C4D511F03F4DB004522F1 /* main.m in Sources */,

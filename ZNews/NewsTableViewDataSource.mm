@@ -32,6 +32,7 @@
     [cell.thumbNail setIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [cell.thumbNail sd_setImageWithURL:[NSURL URLWithString:data.thumbnails[0]]];
     cell.newsSource.text = data.source;
+    //[self registerForPreviewingWithDelegate:self sourceView:cell];
     return cell;
 }
 
@@ -51,7 +52,17 @@
     NewsDetailViewController *newsDetailVC = [NewsDetailViewController new];
     NewsBasicInfo *data = _newsLists[indexPath.row];
     newsDetailVC.requestURLString = data.url;
-    [_delegate pushVC:newsDetailVC];
+    [ZNavigator navigateTo:@"NewsDetailViewController" withData:@{@"url":data.url}];
+    //[_delegate pushVC:newsDetailVC];
 }
+
+#pragma mark UIViewControllerPreviewing
+//- (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
+//    return nil;
+//    
+//}
+//- (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit NS_AVAILABLE_IOS(9_0) {
+//
+//}
 
 @end

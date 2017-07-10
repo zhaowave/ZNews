@@ -13,7 +13,7 @@
 
 @end
 
-@interface NewsTableViewDataSource : NSObject <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
+@interface NewsTableViewDataSource : NSObject <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UIViewControllerPreviewing>
 @property (nonatomic,weak) id <DataSourceDelegate> delegate;
 @property (nonatomic, strong) NSArray *newsLists;
 @end

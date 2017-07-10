@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ZViewController : UIViewController
-
+@property (nonatomic, strong) NSMutableDictionary *param;
 @end

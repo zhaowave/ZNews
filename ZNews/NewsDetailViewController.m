@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _requestURLString = self.param[@"url"];
     [self addNewsWebView];
 }
 
