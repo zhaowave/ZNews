@@ -11,12 +11,14 @@
 #import "NewsBasicInfo.h"
 #import "NewsTableViewDataSource.h"
 #import "YYModel.h"
+#import "ZScrollBar.h"
 
 @interface ZHomePageViewController (){
     
     NewsTableViewDataSource *_dataSource;
     NSMutableArray *_newsArray;
     UIButton *_refreshButton;
+    ZScrollBar *_scrollBar;
     
 }
 
@@ -26,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addScrollBar];
     [self refreshButton];
     [self updateNavigationItems];
     [self createTableView];
@@ -49,6 +52,18 @@
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageView];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
     [imageView startAnimating];
+}
+
+- (void) addScrollBar {
+    _scrollBar = [[ZScrollBar alloc] init];
+    //_scrollBar.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:_scrollBar];
+    [_scrollBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+        make.top.equalTo(self.view.mas_top);
+        make.height.mas_equalTo(40);
+    }];
 }
 
 - (void) refreshButton {
@@ -93,6 +108,13 @@
     _newsTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
     [self.view addSubview:_newsTableView];
+    
+    [_newsTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_scrollBar.mas_bottom);
+        make.bottom.equalTo(self.view.mas_bottom);
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+    }];
 }
 
 - (void) refreshButtonTapAction {

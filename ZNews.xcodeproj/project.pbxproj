@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8C88319FD3BE9CB4E8E08B9D /* libPods-ZNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3433314682307CBE85DF3C /* libPods-ZNews.a */; };
 		BA3F57F31F136A7300512592 /* ZNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3F57F21F136A7300512592 /* ZNavigator.m */; };
+		BA8E29731F14CB1600884496 /* ZScrollBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8E29721F14CB1500884496 /* ZScrollBar.m */; };
 		BAC1F8A41F0F335E000A4D12 /* NewsTableViewDataSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = BAC1F8A31F0F335D000A4D12 /* NewsTableViewDataSource.mm */; };
 		BACC3EAE1F05EC0B001F5132 /* ZMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACC3EAD1F05EC0B001F5132 /* ZMainTabBarController.m */; };
 		BACC3EB11F05F024001F5132 /* ZHomePageViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BACC3EB01F05F024001F5132 /* ZHomePageViewController.mm */; };
@@ -51,6 +52,8 @@
 /* Begin PBXFileReference section */
 		BA3F57F11F136A7300512592 /* ZNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNavigator.h; sourceTree = "<group>"; };
 		BA3F57F21F136A7300512592 /* ZNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNavigator.m; sourceTree = "<group>"; };
+		BA8E29711F14CB1500884496 /* ZScrollBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZScrollBar.h; sourceTree = "<group>"; };
+		BA8E29721F14CB1500884496 /* ZScrollBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZScrollBar.m; sourceTree = "<group>"; };
 		BAC1F8A21F0F335D000A4D12 /* NewsTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewDataSource.h; sourceTree = "<group>"; };
 		BAC1F8A31F0F335D000A4D12 /* NewsTableViewDataSource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NewsTableViewDataSource.mm; sourceTree = "<group>"; };
 		BACC3EAC1F05EC0B001F5132 /* ZMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMainTabBarController.h; sourceTree = "<group>"; };
@@ -144,6 +147,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BA8E29701F14CADD00884496 /* ScrollBar */ = {
+			isa = PBXGroup;
+			children = (
+				BA8E29711F14CB1500884496 /* ZScrollBar.h */,
+				BA8E29721F14CB1500884496 /* ZScrollBar.m */,
+			);
+			name = ScrollBar;
+			sourceTree = "<group>";
+		};
 		BACC3E9A1F05D628001F5132 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +171,7 @@
 		BACC3E9B1F05D642001F5132 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BA8E29701F14CADD00884496 /* ScrollBar */,
 				BACC3ED71F06378B001F5132 /* ZViewController */,
 				BACC3EAB1F05E6BA001F5132 /* ZMainTabBarController */,
 				BACC3EB21F05F02B001F5132 /* HomePage */,
@@ -498,6 +511,7 @@
 				C98453F71F126A2C00E96186 /* VideoNews.mm in Sources */,
 				C98453FA1F12720700E96186 /* Networking.m in Sources */,
 				BACC3EAE1F05EC0B001F5132 /* ZMainTabBarController.m in Sources */,
+				BA8E29731F14CB1600884496 /* ZScrollBar.m in Sources */,
 				C95ADB0D1F10B58C00EF925D /* ZDatabase.mm in Sources */,
 				BA3F57F31F136A7300512592 /* ZNavigator.m in Sources */,
 				BACC3EE21F0641B7001F5132 /* UIColor+HexString.m in Sources */,
