@@ -63,17 +63,20 @@
 
 #pragma mark UIViewControllerPreviewing
 - (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
-    NewsDetailViewController *detailVC = [NewsDetailViewController new];
+    NewsDetailViewController *detailVC = [[NewsDetailViewController alloc] init];
     NSIndexPath *indexPath = [_hpVC.newsTableView indexPathForCell:(UITableViewCell* )[previewingContext sourceView]];
     NewsBasicInfo *news = _newsLists[indexPath.row];
     detailVC.requestURLString = news.url;
     detailVC.preferredContentSize = CGSizeMake(0.0f,500.0f);
-    
     return detailVC;
     
 }
 - (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit NS_AVAILABLE_IOS(9_0) {
+    
+    //UINavigationController *nav = (UINavigationController*)viewControllerToCommit;
+    //NewsDetailViewController *detailVC = [nav.viewControllers firstObject];
     [_hpVC showViewController:viewControllerToCommit sender:_hpVC];
+    _hpVC.tabBarController.tabBar.hidden = YES;
 }
 
 @end

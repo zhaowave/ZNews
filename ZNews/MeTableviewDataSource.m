@@ -72,7 +72,7 @@
 //顶部禁止拉动
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    NSLog(@"%f",scrollView.contentOffset.y);
+    //NSLog(@"%f",scrollView.contentOffset.y);
     if (scrollView.contentOffset.y < 0) {
         scrollView.bounces = NO;
     }

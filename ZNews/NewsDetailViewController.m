@@ -22,6 +22,18 @@
     [self addNewsWebView];
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"willapear");
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    NSLog(@"didappear,%d",_newsWebView.loading);
+}
+
+
 - (void) addNewsWebView {
     _newsWebView = [[WKWebView alloc] initWithFrame:self.view.frame];
     _newsWebView.allowsLinkPreview = YES;
@@ -31,6 +43,7 @@
     _progressHUD = [MBProgressHUD showHUDAddedTo:_newsWebView animated:YES];
     _progressHUD.label.text = @"努力加载中...";
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -156,16 +169,16 @@
 
 - (NSArray<id<UIPreviewActionItem>> *)previewActionItems {
     // setup a list of preview actions
-    UIPreviewAction *action1 = [UIPreviewAction actionWithTitle:@"Aciton1" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
-        NSLog(@"Aciton1");
+    UIPreviewAction *action1 = [UIPreviewAction actionWithTitle:@"删除" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"删除");
     }];
     
-    UIPreviewAction *action2 = [UIPreviewAction actionWithTitle:@"Aciton2" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
-        NSLog(@"Aciton2");
+    UIPreviewAction *action2 = [UIPreviewAction actionWithTitle:@"标记已读" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"标记已读");
     }];
     
-    UIPreviewAction *action3 = [UIPreviewAction actionWithTitle:@"Aciton3" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
-        NSLog(@"Aciton3");
+    UIPreviewAction *action3 = [UIPreviewAction actionWithTitle:@"不感兴趣" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"不感兴趣");
     }];
     
     NSArray *actions = @[action1,action2,action3];

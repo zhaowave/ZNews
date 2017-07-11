@@ -12,7 +12,7 @@
 #import "NewsTableViewDataSource.h"
 #import "YYModel.h"
 
-@interface ZHomePageViewController ()<UIViewControllerPreviewing>{
+@interface ZHomePageViewController (){
     
     NewsTableViewDataSource *_dataSource;
     NSMutableArray *_newsArray;
@@ -30,7 +30,6 @@
     [self updateNavigationItems];
     [self createTableView];
     [self addDataSource];
-    //[self registerForPreviewingWithDelegate:<#(nonnull id<UIViewControllerPreviewingDelegate>)#> sourceView:self.view];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -56,7 +55,7 @@
     _refreshButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH/5, self.tabBarController.tabBar.frame.size.height)];
     _refreshButton.backgroundColor = [UIColor clearColor];
     [self.tabBarController.tabBar addSubview:_refreshButton];
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(getNewsLists)];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(refreshButtonTapAction)];
     [_refreshButton addGestureRecognizer:tapGesture];
 }
 
@@ -95,6 +94,16 @@
     
     [self.view addSubview:_newsTableView];
 }
+
+- (void) refreshButtonTapAction {
+    if (self.tabBarController.selectedIndex == 0) {
+        [self getNewsLists];
+    } else {
+        [self.tabBarController setSelectedIndex:0];
+    }
+}
+
+
 
 - (void) getNewsLists {
     [[NewsService sharedNewsService] queryNewsWithCallback:^(NSMutableArray *newsArray, NSError *error) {
