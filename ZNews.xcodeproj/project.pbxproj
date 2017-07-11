@@ -41,6 +41,7 @@
 		C94CEE4B1F0E90650004EFAF /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C94CEE4A1F0E90650004EFAF /* NewsCell.m */; };
 		C95ADB0D1F10B58C00EF925D /* ZDatabase.mm in Sources */ = {isa = PBXBuildFile; fileRef = C95ADB0C1F10B58C00EF925D /* ZDatabase.mm */; };
 		C95EDE671F0FD3C600FF4158 /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C95EDE661F0FD3C600FF4158 /* NewsDetailViewController.m */; };
+		C961A3051F15158B00B95EC5 /* ScrollTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C961A3041F15158B00B95EC5 /* ScrollTestViewController.m */; };
 		C98453F71F126A2C00E96186 /* VideoNews.mm in Sources */ = {isa = PBXBuildFile; fileRef = C98453F61F126A2C00E96186 /* VideoNews.mm */; };
 		C98453FA1F12720700E96186 /* Networking.m in Sources */ = {isa = PBXBuildFile; fileRef = C98453F91F12720700E96186 /* Networking.m */; };
 		C9C86AF11F090FE300F1ED3F /* MeArticalFuncTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C86AF01F090FE300F1ED3F /* MeArticalFuncTableViewCell.m */; };
@@ -103,6 +104,8 @@
 		C95ADB0C1F10B58C00EF925D /* ZDatabase.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ZDatabase.mm; sourceTree = "<group>"; };
 		C95EDE651F0FD3C600FF4158 /* NewsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
 		C95EDE661F0FD3C600FF4158 /* NewsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
+		C961A3031F15158B00B95EC5 /* ScrollTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollTestViewController.h; sourceTree = "<group>"; };
+		C961A3041F15158B00B95EC5 /* ScrollTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollTestViewController.m; sourceTree = "<group>"; };
 		C98453F51F126A2C00E96186 /* VideoNews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoNews.h; sourceTree = "<group>"; };
 		C98453F61F126A2C00E96186 /* VideoNews.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoNews.mm; sourceTree = "<group>"; };
 		C98453F81F12720700E96186 /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
@@ -152,6 +155,8 @@
 			children = (
 				BA8E29711F14CB1500884496 /* ZScrollBar.h */,
 				BA8E29721F14CB1500884496 /* ZScrollBar.m */,
+				C961A3031F15158B00B95EC5 /* ScrollTestViewController.h */,
+				C961A3041F15158B00B95EC5 /* ScrollTestViewController.m */,
 			);
 			name = ScrollBar;
 			sourceTree = "<group>";
@@ -505,6 +510,7 @@
 				BACC3F201F0F25A9001F5132 /* NewsBasicInfo.mm in Sources */,
 				BACC3ED61F063520001F5132 /* ZVideoViewController.mm in Sources */,
 				C9D11CCF1F06966000CED71B /* LoginView.m in Sources */,
+				C961A3051F15158B00B95EC5 /* ScrollTestViewController.m in Sources */,
 				C95EDE671F0FD3C600FF4158 /* NewsDetailViewController.m in Sources */,
 				C931F1431F07C088005805EF /* MeTableviewDataSource.m in Sources */,
 				BACC3ECD1F0634EE001F5132 /* ZImportantNewsViewController.m in Sources */,

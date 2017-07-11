@@ -45,9 +45,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 100;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0.1;
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -59,6 +56,18 @@
     NewsBasicInfo *data = _newsLists[indexPath.row];
     newsDetailVC.requestURLString = data.url;
     [ZNavigator navigateTo:@"NewsDetailViewController" withData:@{@"url":data.url}];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    return 0.1;
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.1)];
+    headerView.backgroundColor = CUSTOMER_RED;
+    return headerView;
+    
 }
 
 #pragma mark UIViewControllerPreviewing

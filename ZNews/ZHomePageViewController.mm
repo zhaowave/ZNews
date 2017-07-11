@@ -62,9 +62,10 @@
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.top.equalTo(self.view.mas_top);
-        make.height.mas_equalTo(40);
+        make.height.mas_equalTo(50);
     }];
 }
+
 
 - (void) refreshButton {
     _refreshButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH/5, self.tabBarController.tabBar.frame.size.height)];
@@ -103,7 +104,6 @@
     _newsTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^ {
         [self getNewsLists];
     }];
-    
     _newsTableView.separatorInset = UIEdgeInsetsZero;
     _newsTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
