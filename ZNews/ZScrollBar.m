@@ -12,7 +12,7 @@
 #define BARHEIGHT 45
 
 @interface ZScrollBar(){
-    UIScrollView *_scrollBar;
+    //UIScrollView *_scrollBar;
     NSArray *dataArray;
     NSMutableArray *_buttonArray;
 }
@@ -30,17 +30,20 @@
 }
 
 - (void) initViews {
-    _scrollBar = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, BARHEIGHT)];
-    _scrollBar.showsHorizontalScrollIndicator = NO;
-    _scrollBar.showsVerticalScrollIndicator = NO;
-    UIView *buttonView = [[UIView alloc] initWithFrame:_scrollBar.frame];
-    [_scrollBar addSubview:buttonView];
-    //_scrollBar.backgroundColor = LIGHTGRAYCOLOR;
-    [self addSubview:_scrollBar];
+    self.frame = CGRectMake(0, 0, SCREEN_WIDTH, BARHEIGHT);
+    self.showsHorizontalScrollIndicator = NO;
+    self.showsVerticalScrollIndicator = NO;
+   
     self.selectedIndex = 0;
     dataArray = @[@"头条",@"视频",@"娱乐",@"体育",@"北京",@"财经",@"科技",@"汽车",@"社会",@"军事",@"时尚",@"汽车",@"社会",@"军事",@"时尚",];
     _buttonArray = [NSMutableArray new];
-    _scrollBar.contentSize = CGSizeMake(dataArray.count*50, BARHEIGHT);
+    self.contentSize = CGSizeMake(dataArray.count*50, 0);
+    CGRect frame = self.frame;
+    frame.size.width = self.contentSize.width;
+    UIView *buttonView = [[UIView alloc] initWithFrame:frame];
+    //buttonView.backgroundColor = [UIColor blueColor];
+    [self addSubview:buttonView];
+
     for (int i = 0; i<dataArray.count; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         NSAttributedString *title = [[NSAttributedString alloc] initWithString:dataArray[i] attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:14]}];
@@ -66,16 +69,21 @@
         [btn setAttributedTitle:title forState:UIControlStateNormal];
         
         UIButton *forwardBtn = _buttonArray[_selectedIndex];
-        //选中的不是之前选中的
+        //选中的不是之前选中的，把上一次选中的状体恢复
         if (_selectedIndex != btn.tag) {
-            NSAttributedString *title = [[NSAttributedString alloc] initWithString:dataArray[btn.tag] attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:14]}];
+            NSAttributedString *title = [[NSAttributedString alloc] initWithString:dataArray[_selectedIndex] attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:14]}];
             [forwardBtn setAttributedTitle:title forState:UIControlStateNormal];
         }
-        
-        _selectedIndex = btn.tag;//当前选中的位置
-        if (btn.frame.origin.x > SCREEN_WIDTH/2) {
-            [_scrollBar scrollRectToVisible:CGRectMake(0, 0, SCREEN_WIDTH, BARHEIGHT) animated:YES];
+        //体育
+        if (btn.tag == 3) {
+            //刷新数据
+            [_mdeletage refreshNewsListWithType:btn.tag];
         }
+        _selectedIndex = btn.tag;//当前选中的位置
+//        if (btn.frame.origin.x > SCREEN_WIDTH/2) {
+//            //NSLog(@"%@",btn.frame);
+//            [self scrollRectToVisible:CGRectMake(btn.frame.origin.x - SCREEN_WIDTH/2, 100, SCREEN_WIDTH, BARHEIGHT) animated:YES];
+//        }
     }
     
 }

@@ -26,6 +26,7 @@ singleton_m(ZNavigator);
 
 - (void) navigateTo:(NSString*)viewController withData:(NSMutableDictionary *)param {
     ZViewController *classObject = (ZViewController*)[NSClassFromString(viewController) new];
+    //UINavigationController *navc = [[UINavigationController alloc] initWithRootViewController:classObject];
     classObject.param = param;
     AppDelegate *delegate = (AppDelegate *)([UIApplication sharedApplication].delegate);
     UINavigationController *nav = [delegate.tabBarController selectedViewController];

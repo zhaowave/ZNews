@@ -8,7 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZScrollBar : UIView
+@protocol ZScrollBarDelegate <NSObject>
+
+
+
+- (void) refreshNewsListWithType:(int) type;
+
+@end
+
+
+@interface ZScrollBar : UIScrollView
+
+@property (nonatomic,weak) id<ZScrollBarDelegate> mdeletage;
 
 @property (nonatomic,assign) int selectedIndex;
 

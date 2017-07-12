@@ -111,5 +111,28 @@ singleton_m(NewsService)
     }];
 }
 
+- (void) querySportsNewsWithCallback:(GetNewsList) callback {
+    NSMutableArray *newsArray = [NSMutableArray new];
+    [[Networking sharedNetworking] doHttpRequestWithRequest:SPORTSNEWS andParameter:nil withCallback:^(NSArray *responseData, NSError *error) {
+        if (error) {
+            ;
+        } else {
+            NSArray *newsLists = responseData;
+            if (newsLists.count == 0) {
+                callback(nil,error);
+            }
+            for (NSDictionary *news in newsLists) {
+                NewsBasicInfo *info = [NewsBasicInfo yy_modelWithDictionary:news];
+                [[NewsService sharedNewsService] createTable];
+                bool success = [[NewsService sharedNewsService] insertObject:info into:@"NewsBasicInfo"];
+                if(success)
+                    [newsArray insertObject:info atIndex:0];
+                NSLog(@"%@",info);
+            }
+            callback(newsArray, error);
+        }
+    }];
+}
+
 
 @end

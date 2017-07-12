@@ -103,6 +103,8 @@ WCDB_PROPERTY(a_ver)
 - (bool) insertObject:(id)object into:(NSString*)name;
 - (NSArray*) getNewsInfoFromDB;
 - (void) queryNewsWithCallback:(GetNewsList) callback;
+
+- (void) querySportsNewsWithCallback:(GetNewsList) callback;
 singleton_h(NewsService);
 @end
 

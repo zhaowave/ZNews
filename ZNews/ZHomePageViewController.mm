@@ -13,10 +13,11 @@
 #import "YYModel.h"
 #import "ZScrollBar.h"
 
-@interface ZHomePageViewController (){
+@interface ZHomePageViewController ()<ZScrollBarDelegate,UIScrollViewDelegate>{
     
     NewsTableViewDataSource *_dataSource;
     NSMutableArray *_newsArray;
+    NSMutableArray *_sportsNewsArray;
     UIButton *_refreshButton;
     ZScrollBar *_scrollBar;
     
@@ -56,7 +57,8 @@
 
 - (void) addScrollBar {
     _scrollBar = [[ZScrollBar alloc] init];
-    //_scrollBar.backgroundColor = [UIColor yellowColor];
+    _scrollBar.mdeletage = self;
+    _scrollBar.delegate = self;
     [self.view addSubview:_scrollBar];
     [_scrollBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left);
@@ -77,6 +79,7 @@
 
 - (void) addDataSource {
     _newsArray = [NSMutableArray new];
+    _sportsNewsArray = [NSMutableArray new];
     [_newsArray addObjectsFromArray:[[NewsService sharedNewsService] getNewsInfoFromDB]];
     _dataSource.newsLists = _newsArray;
 }
@@ -148,6 +151,22 @@
 -(void) pushVC:(id)vc {
     [self.navigationController pushViewController:vc animated:YES];
     [self.tabBarController.tabBar setHidden:YES];
+}
+
+#pragma mark ZScrollBarDelegate
+
+- (void) refreshNewsListWithType:(int) type {
+    [[NewsService sharedNewsService] querySportsNewsWithCallback:^(NSMutableArray *newsArray, NSError *error) {
+        NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndexesInRange: NSMakeRange(0, newsArray.count)];
+        [_sportsNewsArray insertObjects:newsArray atIndexes:indexSet];
+        //[_newsTableView.mj_header endRefreshing];
+        [_newsArray removeAllObjects];
+        [_newsArray addObjectsFromArray:_sportsNewsArray];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_newsTableView reloadData];
+
+        });
+    }];
 }
 
 @end

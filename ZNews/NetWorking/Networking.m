@@ -15,7 +15,7 @@ singleton_m(Networking)
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     NSURLSessionTask *task =  [manager POST:request parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if ([request isEqualToString:NEWSURL]) {
+        if ([request isEqualToString:NEWSURL] || [request isEqualToString:SPORTSNEWS]) {
             NSArray *newsLists = responseObject[@"newslist"];
             callback(newsLists,nil);
         }
