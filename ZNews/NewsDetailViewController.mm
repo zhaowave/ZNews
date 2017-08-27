@@ -7,7 +7,7 @@
 //
 
 #import "NewsDetailViewController.h"
-
+#import "NewsBasicInfo.h"
 @interface NewsDetailViewController () <WKNavigationDelegate>{
     WKWebView *_newsWebView;
     MBProgressHUD *_progressHUD;
@@ -19,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"屏蔽" style:UIBarButtonItemStylePlain target:self action:@selector(dontShow:)];
     _requestURLString = self.param[@"url"];
     [self addNewsWebView];
 }
@@ -35,6 +36,22 @@
     NSLog(@"didappear,%d",_newsWebView.loading);
 }
 
+- (void) dontShow:(id)sender {
+    NewsBasicInfo *news = self.param[@"News"];
+    UIBarButtonItem *item = (UIBarButtonItem*)sender;
+    if ([item.title isEqualToString:@"屏蔽"]) {
+        item.title = @"取消屏蔽";
+        news.isshow = NO;
+    } else {
+        item.title = @"屏蔽";
+        news.isshow = YES;
+    }
+    
+    [[NewsService sharedNewsService] updateObject:news];
+    if ([self.param[@"source"] isEqualToString:@"imagenews"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"imagenewsnumberchanged" object:nil userInfo:@{@"changed":item.title}];
+    }
+}
 
 - (void) addNewsWebView {
     _newsWebView = [[WKWebView alloc] initWithFrame:self.view.frame];

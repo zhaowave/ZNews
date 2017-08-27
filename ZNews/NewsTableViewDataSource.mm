@@ -12,18 +12,34 @@
 #import "NewsBasicInfo.h"
 #import "AppDelegate.h"
 #import "ZHomePageViewController.h"
+#import "ScrollNewsCellTableViewCell.h"
 
+@interface NewsTableViewDataSource(){
+    NSIndexPath *selectIndexPath;
+    
+}
+@end;
 @implementation NewsTableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _newsLists.count;
+    return _newsLists.count - _imageNewsNumber;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellId = @"cellid";
     NSInteger row = indexPath.row;
     
-    NewsBasicInfo *data = _newsLists[row];
+    if (row == 0) {
+        NSMutableArray *array = [NSMutableArray new];
+        for(int i = 0;i<_imageNewsNumber;i++){
+            [array addObject:_newsLists[i]];
+        }
+        if (array.count != 0) {
+            ScrollNewsCellTableViewCell *scrollCell = [[ScrollNewsCellTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil andImageArray:array];
+            return scrollCell;
+        }
+    }
+    NewsBasicInfo *data = _newsLists[row+_imageNewsNumber];
     NewsCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
         cell = [[NewsCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
@@ -43,6 +59,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return 150;
+    }
     return 100;
 }
 
@@ -51,11 +70,13 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    selectIndexPath = indexPath;//当前选中的indexpath
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    NewsDetailViewController *newsDetailVC = [NewsDetailViewController new];
+   // NewsDetailViewController *newsDetailVC = [NewsDetailViewController new];
+   // newsDetailVC.delegate = self;
     NewsBasicInfo *data = _newsLists[indexPath.row];
-    newsDetailVC.requestURLString = data.url;
-    [ZNavigator navigateTo:@"NewsDetailViewController" withData:@{@"url":data.url}];
+    //newsDetailVC.requestURLString = data.url;
+    [ZNavigator navigateTo:@"NewsDetailViewController" withData:@{@"url":data.url,@"News":data}];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -63,7 +84,18 @@
     return 0.1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    
+    return 0.1;
+}
+
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.1)];
+    headerView.backgroundColor = CUSTOMER_RED;
+    return headerView;
+    
+}
+- (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.1)];
     headerView.backgroundColor = CUSTOMER_RED;
     return headerView;
@@ -87,5 +119,7 @@
     [_hpVC showViewController:viewControllerToCommit sender:_hpVC];
     _hpVC.tabBarController.tabBar.hidden = YES;
 }
+
+
 
 @end

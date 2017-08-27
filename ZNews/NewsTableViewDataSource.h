@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+
 @class ZHomePageViewController;
 
 @interface NewsTableViewDataSource : NSObject <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UIViewControllerPreviewingDelegate>
 @property (nonatomic,weak) ZHomePageViewController *hpVC;
 @property (nonatomic, strong) NSArray *newsLists;
+@property (assign, nonatomic) int         imageNewsNumber;
 @end

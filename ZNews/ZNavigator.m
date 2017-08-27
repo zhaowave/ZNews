@@ -28,11 +28,20 @@ singleton_m(ZNavigator);
     ZViewController *classObject = (ZViewController*)[NSClassFromString(viewController) new];
     //UINavigationController *navc = [[UINavigationController alloc] initWithRootViewController:classObject];
     classObject.param = param;
+    
+    
     AppDelegate *delegate = (AppDelegate *)([UIApplication sharedApplication].delegate);
     UINavigationController *nav = [delegate.tabBarController selectedViewController];
     nav.tabBarController.tabBar.hidden = YES;
     self.nav = nav;
     [self.nav pushViewController:classObject animated:YES];
+}
+
+- (void) donnotShowANews:(BOOL)show {
+    
+//    NewsBasicInfo *news = _newsLists[selectIndexPath.row];
+//    news.isshow = show;
+//    [[NewsService sharedNewsService] updateObject:news];
 }
 
 @end

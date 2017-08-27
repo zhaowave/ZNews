@@ -54,6 +54,7 @@ typedef void(^GetNewsList)(NSMutableArray *newsArray, NSError *error);
 @property (strong ,nonatomic) NSString          *seq_no;
 @property (strong ,nonatomic) NSString          *reasonInfo;
 @property (strong ,nonatomic) NSString          *a_ver;
+@property (assign ,nonatomic) BOOL              isshow;
 
 WCDB_PROPERTY(Id)
 WCDB_PROPERTY(uinnick)
@@ -93,6 +94,7 @@ WCDB_PROPERTY(realChlName)
 WCDB_PROPERTY(seq_no)
 WCDB_PROPERTY(reasonInfo)
 WCDB_PROPERTY(a_ver)
+WCDB_PROPERTY(isshow)
 
 
 @end
@@ -100,8 +102,9 @@ WCDB_PROPERTY(a_ver)
 @interface NewsService:NSObject
 
 - (void) createTable;
+- (BOOL) updateObject:(id)object;
 - (bool) insertObject:(id)object into:(NSString*)name;
-- (NSArray*) getNewsInfoFromDB;
+- (NSArray*) getNewsInfoFromDB:(int)offset;
 - (void) queryNewsWithCallback:(GetNewsList) callback;
 
 - (void) querySportsNewsWithCallback:(GetNewsList) callback;

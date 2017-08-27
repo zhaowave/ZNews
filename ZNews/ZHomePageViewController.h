@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "ZViewController.h"
 #import "ZScrollBar.h"
+
+
+
 @interface ZHomePageViewController : ZViewController<ZScrollBarDelegate>
 @property (nonatomic, strong) UITableView *newsTableView;
 @end

@@ -51,6 +51,7 @@ WCDB_SYNTHESIZE(NewsBasicInfo, realChlName)
 WCDB_SYNTHESIZE(NewsBasicInfo, seq_no)
 WCDB_SYNTHESIZE(NewsBasicInfo, reasonInfo)
 WCDB_SYNTHESIZE(NewsBasicInfo, a_ver)
+WCDB_SYNTHESIZE(NewsBasicInfo, isshow)
 
 WCDB_PRIMARY(NewsBasicInfo, Id)
 
@@ -76,14 +77,22 @@ singleton_m(NewsService)
     WCTDatabase *database = [[ZDatabase sharedZDatabase] getDatabase];
     return [database insertObject:object into:name];
 }
-//从数据库取20条新闻 展示
-- (NSArray*) getNewsInfoFromDB {
+
+- (BOOL) updateObject:(id)object {
+    WCTDatabase *database = [[ZDatabase sharedZDatabase] getDatabase];
+    if ([database isTableExists:@"NewsBasicInfo"]) {
+        return [database insertOrReplaceObject:object into:@"NewsBasicInfo"];
+    }else return false;
+}
+//从数据库取10条新闻 展示
+- (NSArray*) getNewsInfoFromDB:(int)offset {
     //NSArray<Message *> *message = [database getObjectsOfClass:Message.class
     //fromTable:@"message"
     //orderBy:Message.localID.order()];
     WCTDatabase *database = [[ZDatabase sharedZDatabase] getDatabase];
     if ([database isTableExists:@"NewsBasicInfo"]) {
-        return [database getObjectsOfClass:NewsBasicInfo.class fromTable:@"NewsBasicInfo" limit:20];
+        //return [database getObjectsOfClass:NewsBasicInfo.class fromTable:@"NewsBasicInfo" where:NewsBasicInfo.isshow==1 limit:10];
+        return [database getObjectsOfClass:NewsBasicInfo.class fromTable:@"NewsBasicInfo" where:NewsBasicInfo.isshow==1 orderBy:NewsBasicInfo.isshow.order(WCTOrderedAscending) limit:10 offset:offset];
     }
     return nil;
 }
@@ -100,6 +109,7 @@ singleton_m(NewsService)
             }
             for (NSDictionary *news in newsLists) {
                 NewsBasicInfo *info = [NewsBasicInfo yy_modelWithDictionary:news];
+                info.isshow = YES;
                 [[NewsService sharedNewsService] createTable];
                 bool success = [[NewsService sharedNewsService] insertObject:info into:@"NewsBasicInfo"];
                 if(success)
