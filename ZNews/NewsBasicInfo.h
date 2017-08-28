@@ -105,6 +105,7 @@ WCDB_PROPERTY(isshow)
 - (BOOL) updateObject:(id)object;
 - (bool) insertObject:(id)object into:(NSString*)name;
 - (NSArray*) getNewsInfoFromDB:(int)offset;
+- (NSArray*) getShildedNewsInfoFromDB;
 - (void) queryNewsWithCallback:(GetNewsList) callback;
 
 - (void) querySportsNewsWithCallback:(GetNewsList) callback;

@@ -97,6 +97,15 @@ singleton_m(NewsService)
     return nil;
 }
 
+//从数据库取被屏蔽的新闻 展示
+- (NSArray*) getShildedNewsInfoFromDB{
+    WCTDatabase *database = [[ZDatabase sharedZDatabase] getDatabase];
+    if ([database isTableExists:@"NewsBasicInfo"]) {
+        return [database getObjectsOfClass:NewsBasicInfo.class fromTable:@"NewsBasicInfo" where:NewsBasicInfo.isshow==0];
+    }
+    return nil;
+}
+
 - (void) queryNewsWithCallback:(GetNewsList) callback {
     NSMutableArray *newsArray = [NSMutableArray new];
     [[Networking sharedNetworking] doHttpRequestWithRequest:NEWSURL andParameter:nil withCallback:^(NSArray *responseData, NSError *error) {

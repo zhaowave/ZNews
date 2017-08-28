@@ -18,8 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"屏蔽" style:UIBarButtonItemStylePlain target:self action:@selector(dontShow:)];
+    NewsBasicInfo *news = self.param[@"News"];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:news.isshow==1?@"屏蔽":@"取消屏蔽" style:UIBarButtonItemStylePlain target:self action:@selector(dontShow:)];
     _requestURLString = self.param[@"url"];
     [self addNewsWebView];
 }

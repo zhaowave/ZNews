@@ -65,23 +65,23 @@
 - (NSString *)description
 {
     NSMutableString *desc = [[NSMutableString alloc] init];
-    [desc appendFormat:@"Code:%ld, ", (long) self.code];
-    [desc appendFormat:@"Type:%s, ", WCDB::Error::GetTypeName((WCDB::Error::Type) _type)];
-    __block BOOL quote = NO;
-    [self.userInfo enumerateKeysAndObjectsUsingBlock:^(NSNumber *key, id obj, BOOL *_Nonnull unused) {
-      if (quote) {
-          [desc appendString:@", "];
-      } else {
-          quote = YES;
-      }
-      [desc appendFormat:@"%s:%@", WCDB::Error::GetKeyName((WCDB::Error::Key) key.intValue), obj];
-    }];
+//    [desc appendFormat:@"Code:%ld, ", (long) self.code];
+//    [desc appendFormat:@"Type:%s, ", WCDB::Error::GetTypeName((WCDB::Error::Type) _type)];
+//    __block BOOL quote = NO;
+//    [self.userInfo enumerateKeysAndObjectsUsingBlock:^(NSNumber *key, id obj, BOOL *_Nonnull unused) {
+//      if (quote) {
+//          [desc appendString:@", "];
+//      } else {
+//          quote = YES;
+//      }
+//      [desc appendFormat:@"%s:%@", WCDB::Error::GetKeyName((WCDB::Error::Key) key.intValue), obj];
+//    }];
     return desc;
 }
 
 - (id)infoForKey:(WCTErrorKey)key
 {
-    return [self.userInfo objectForKey:@(key)];
+    //return [self.userInfo objectForKey:@(key)];
 }
 
 @end

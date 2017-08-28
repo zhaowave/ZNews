@@ -14,4 +14,5 @@
 @property (nonatomic,weak) ZHomePageViewController *hpVC;
 @property (nonatomic, strong) NSArray *newsLists;
 @property (assign, nonatomic) int         imageNewsNumber;
+@property (assign, nonatomic) BOOL        canCommitEditing;
 @end

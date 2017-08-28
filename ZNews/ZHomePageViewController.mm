@@ -12,9 +12,8 @@
 #import "NewsTableViewDataSource.h"
 #import "YYModel.h"
 #import "ZScrollBar.h"
-#import "ADScrollView.h"
 
-@interface ZHomePageViewController ()<ZScrollBarDelegate,UIScrollViewDelegate,ADScrollViewViewDelegate>{
+@interface ZHomePageViewController ()<ZScrollBarDelegate,UIScrollViewDelegate>{
     
     NewsTableViewDataSource *_dataSource;
     NSMutableArray *_newsArray;
@@ -22,7 +21,9 @@
     UIButton *_refreshButton;
     ZScrollBar *_scrollBar;
     int offset;
-    ADScrollView *ADView;
+    
+    int imageNewsNumber;
+    NSMutableArray *_shieldNewsArray;
 }
 
 @end
@@ -38,25 +39,31 @@
     [self createTableView];
     [self addDataSource];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(imageNewsChanged:) name:@"imagenewsnumberchanged" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshNewsList) name:@"refreshnewlistnotify" object:nil];//refreshnewlistnotify
     
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:NO];
+    UIButton *item = (UIButton*)self.navigationItem.rightBarButtonItem.customView;
     BOOL change = NO;
     NSMutableArray *tmpNews = [NSMutableArray arrayWithArray:_newsArray];
     for (NewsBasicInfo *info in tmpNews) {
-        if (info.isshow == NO) {
-            [_newsArray removeObject:info];
-            change = YES;
+        if ([item.titleLabel.text isEqualToString:@"新闻列表"]) {
+            if (info.isshow == YES) {
+                [_newsArray removeObject:info];
+                change = YES;
+            }
+        } else {
+            if (info.isshow == NO) {
+                [_newsArray removeObject:info];
+                change = YES;
+            }
         }
     }
     if (change) {
         [_newsTableView reloadData];
-    }
-    if (ADView) {
-        [ADView startTimer];
     }
 }
 
@@ -96,22 +103,7 @@
     }
     
 }
-//- (void) addADView {
-//    ADView = [[ADScrollView alloc] initWithImages:nil withFrame:CGRectMake(0, 0, SCREEN_WIDTH, 150)];
-//    ADView.pageControl.pageIndicatorTintColor = [UIColor whiteColor];
-//    ADView.pageControl.currentPageIndicatorTintColor = [UIColor colorWithHexString:@"e7240b"];
-//    [self.view addSubview:ADView];
-//    __weak typeof(self) weakSelf = self;
-//    ADView.delegate = self;
-//    ADView.time = 5.0;
-//    [ADView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(_scrollBar.mas_bottom);
-//        make.height.mas_equalTo(150);
-//        make.left.equalTo(self.view.mas_left);
-//        make.right.equalTo(self.view.right);
-//    }];
-//    
-//}
+
 
 - (void) refreshButton {
     _refreshButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH/5, self.tabBarController.tabBar.frame.size.height)];
@@ -139,9 +131,11 @@
     UIImageView *titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navigation_logo"]];
     self.navigationItem.titleView = titleView;
     UIButton *right = [UIButton buttonWithType:UIButtonTypeCustom];
-    right.frame = CGRectMake(0,0,40,40);
-    [right setImage:[UIImage imageNamed:@"search_icon"] forState:UIControlStateNormal];
-    [right setImage:[UIImage imageNamed:@"search_icon_highlight"] forState:UIControlStateHighlighted];
+    right.frame = CGRectMake(0,0,80,40);
+    [right setTitle:@"屏蔽列表" forState:UIControlStateNormal];
+    [right addTarget:self action:@selector(showShieldedNews:) forControlEvents:UIControlEventTouchUpInside];
+    //[right setImage:[UIImage imageNamed:@"search_icon"] forState:UIControlStateNormal];
+    //[right setImage:[UIImage imageNamed:@"search_icon_highlight"] forState:UIControlStateHighlighted];
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:right];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 }
@@ -178,6 +172,44 @@
     }];
 }
 
+- (void) showShieldedNews:(id)sender {
+    UIButton *item = (UIButton*)sender;
+    
+    if ([item.titleLabel.text isEqualToString:@"屏蔽列表"]) {
+        [item setTitle:@"新闻列表" forState:UIControlStateNormal];
+        if (!_shieldNewsArray) {
+            _shieldNewsArray = [NSMutableArray new];
+        }
+        [_shieldNewsArray removeAllObjects];
+        [_shieldNewsArray addObjectsFromArray:[[NewsService sharedNewsService] getShildedNewsInfoFromDB]];
+        [_newsArray removeAllObjects];
+        [_newsArray addObjectsFromArray:_shieldNewsArray];
+        // _newsArray = _shieldNewsArray;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            imageNewsNumber  = _dataSource.imageNewsNumber;
+            _dataSource.imageNewsNumber = 0;
+            _dataSource.canCommitEditing = YES;
+            _newsTableView.mj_footer.userInteractionEnabled = NO;
+            _newsTableView.mj_header.userInteractionEnabled = NO;
+            [_newsTableView reloadData];
+        });
+    } else {
+        [item setTitle:@"屏蔽列表" forState:UIControlStateNormal];
+        [_newsArray removeAllObjects];
+        [_newsArray addObjectsFromArray:[[NewsService sharedNewsService] getNewsInfoFromDB:0]];
+        offset = 10;
+        
+        _dataSource.imageNewsNumber  = imageNewsNumber;
+        _dataSource.canCommitEditing = NO;
+        _newsTableView.mj_footer.userInteractionEnabled = YES;
+        _newsTableView.mj_header.userInteractionEnabled = YES;
+        [_newsTableView reloadData];
+    }
+    
+    
+    
+}
+
 - (void) pullToRefresh {
     int count = _newsArray.count;
     [_newsArray addObjectsFromArray:[[NewsService sharedNewsService] getNewsInfoFromDB:offset]];
@@ -206,11 +238,33 @@
     }
 }
 
+- (void)refreshNewsList {
+    UIButton *item = (UIButton*)self.navigationItem.rightBarButtonItem.customView;
+    BOOL change = NO;
+    NSMutableArray *tmpNews = [NSMutableArray arrayWithArray:_newsArray];
+    for (NewsBasicInfo *info in tmpNews) {
+        if ([item.titleLabel.text isEqualToString:@"新闻列表"]) {
+            if (info.isshow == YES) {
+                [_newsArray removeObject:info];
+                change = YES;
+            }
+        } else {
+            if (info.isshow == NO) {
+                [_newsArray removeObject:info];
+                change = YES;
+            }
+        }
+    }
+    if (change) {
+        [_newsTableView reloadData];
+    }
+}
 
 
 - (void) getNewsLists {
     [[NewsService sharedNewsService] queryNewsWithCallback:^(NSMutableArray *newsArray, NSError *error) {
         if (error) {
+            [_newsTableView.mj_header endRefreshing];
             NSLog(@"%@",error);
         } else {
              NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndexesInRange: NSMakeRange(0, newsArray.count)];
@@ -247,11 +301,4 @@
     }];
 }
 
-
-#pragma mark - ADScrollViewViewDelegate
-
-- (void)didClickPage:(ADScrollView *)view atIndex:(NSInteger)index
-{
-    ;
-}
 @end

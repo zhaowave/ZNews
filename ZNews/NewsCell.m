@@ -9,7 +9,7 @@
 #import "NewsCell.h"
 
 #define kGap 10
-@interface NewsCell()
+@interface NewsCell()<UIGestureRecognizerDelegate>
 
 
 
@@ -22,6 +22,7 @@
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self createViews];
+        
     }
     return self;
 }
