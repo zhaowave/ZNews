@@ -12,11 +12,11 @@
 
 @implementation ScrollNewsCellTableViewCell
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(nullable NSString *)reuseIdentifier andImageArray:(NSArray*)arr{
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(nullable NSString *)reuseIdentifier andImageArray:(NSArray*)array{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        _arr = arr;
+        _arr = array;
         //[cell.thumbNail sd_setImageWithURL:[NSURL URLWithString:data.thumbnails[0]]];;
         
         [self createViews];

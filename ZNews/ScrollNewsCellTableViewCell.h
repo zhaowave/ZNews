@@ -11,5 +11,5 @@
 @interface ScrollNewsCellTableViewCell : UITableViewCell<ADScrollViewViewDelegate>
 @property (strong ,nonatomic) NSArray *arr;
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(nullable NSString *)reuseIdentifier andImageArray:(NSArray*)arr;
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(nullable NSString *)reuseIdentifier andImageArray:(NSArray*)array;
 @end

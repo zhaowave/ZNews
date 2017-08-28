@@ -32,7 +32,7 @@
     static NSString *cellId = @"cellid";
     NSInteger row = indexPath.row;
     
-    if (row == 0) {
+    if (row == 0 && _imageNewsNumber>0) {
         NSMutableArray *array = [NSMutableArray new];
         if (_imageNewsNumber > _newsLists.count ) {
             _imageNewsNumber = _newsLists.count;
@@ -45,7 +45,7 @@
             return scrollCell;
         }
     }
-    NewsBasicInfo *data = _newsLists[row+_imageNewsNumber];
+    NewsBasicInfo *data = _newsLists[row+_imageNewsNumber-1];
     NewsCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
         cell = [[NewsCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
@@ -82,7 +82,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
    // NewsDetailViewController *newsDetailVC = [NewsDetailViewController new];
    // newsDetailVC.delegate = self;
-    NewsBasicInfo *data = _newsLists[indexPath.row];
+    NewsBasicInfo *data = _newsLists[indexPath.row + _imageNewsNumber - 1];
     //newsDetailVC.requestURLString = data.url;
     [ZNavigator navigateTo:@"NewsDetailViewController" withData:@{@"url":data.url,@"News":data}];
 }
