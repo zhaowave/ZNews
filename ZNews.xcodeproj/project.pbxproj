@@ -33,6 +33,7 @@
 		BACC3EEB1F064BEB001F5132 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BACC3EE81F064BEB001F5132 /* Main.storyboard */; };
 		BACC3F0E1F0B8040001F5132 /* HomePage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BACC3F0D1F0B8040001F5132 /* HomePage.xcassets */; };
 		BACC3F201F0F25A9001F5132 /* NewsBasicInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = BACC3F1F1F0F25A9001F5132 /* NewsBasicInfo.mm */; };
+		BAFD4A051F555650001F9489 /* AdvertisingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFD4A041F555650001F9489 /* AdvertisingViewController.m */; };
 		C908CAD11F52A001006ECE81 /* ADScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C908CAD01F52A001006ECE81 /* ADScrollView.m */; };
 		C92C4D431F03F4DB004522F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C92C4D421F03F4DB004522F1 /* AppDelegate.m */; };
 		C92C4D4B1F03F4DB004522F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C92C4D4A1F03F4DB004522F1 /* Assets.xcassets */; };
@@ -91,6 +92,8 @@
 		BACC3F0D1F0B8040001F5132 /* HomePage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HomePage.xcassets; sourceTree = "<group>"; };
 		BACC3F1E1F0F25A9001F5132 /* NewsBasicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsBasicInfo.h; sourceTree = "<group>"; };
 		BACC3F1F1F0F25A9001F5132 /* NewsBasicInfo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NewsBasicInfo.mm; sourceTree = "<group>"; };
+		BAFD4A031F555650001F9489 /* AdvertisingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdvertisingViewController.h; sourceTree = "<group>"; };
+		BAFD4A041F555650001F9489 /* AdvertisingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdvertisingViewController.m; sourceTree = "<group>"; };
 		C908CACF1F52A001006ECE81 /* ADScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADScrollView.h; sourceTree = "<group>"; };
 		C908CAD01F52A001006ECE81 /* ADScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADScrollView.m; sourceTree = "<group>"; };
 		C92C4D3E1F03F4DB004522F1 /* ZNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +185,7 @@
 		BACC3E9B1F05D642001F5132 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BAFD4A021F555613001F9489 /* Advertising */,
 				BA8E29701F14CADD00884496 /* ScrollBar */,
 				BACC3ED71F06378B001F5132 /* ZViewController */,
 				BACC3EAB1F05E6BA001F5132 /* ZMainTabBarController */,
@@ -325,6 +329,15 @@
 				C98453F61F126A2C00E96186 /* VideoNews.mm */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		BAFD4A021F555613001F9489 /* Advertising */ = {
+			isa = PBXGroup;
+			children = (
+				BAFD4A031F555650001F9489 /* AdvertisingViewController.h */,
+				BAFD4A041F555650001F9489 /* AdvertisingViewController.m */,
+			);
+			name = Advertising;
 			sourceTree = "<group>";
 		};
 		C92C4D351F03F4DB004522F1 = {
@@ -524,6 +537,7 @@
 				C9D11CCF1F06966000CED71B /* LoginView.m in Sources */,
 				C961A3051F15158B00B95EC5 /* ScrollTestViewController.m in Sources */,
 				C95EDE671F0FD3C600FF4158 /* NewsDetailViewController.mm in Sources */,
+				BAFD4A051F555650001F9489 /* AdvertisingViewController.m in Sources */,
 				C931F1431F07C088005805EF /* MeTableviewDataSource.m in Sources */,
 				BACC3ECD1F0634EE001F5132 /* ZImportantNewsViewController.m in Sources */,
 				C98453F71F126A2C00E96186 /* VideoNews.mm in Sources */,

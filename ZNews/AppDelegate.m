@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ZMainTabBarController.h"
+#import "AdvertisingViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +22,9 @@
     ZMainTabBarController *zTabBarContrller = [ZMainTabBarController new];
     [zTabBarContrller.navigationController setNavigationBarHidden:YES animated:NO];
     self.tabBarController = zTabBarContrller;
-    self.window.rootViewController = zTabBarContrller;
+    sleep(1);
+    AdvertisingViewController *ADVC = [AdvertisingViewController new];
+    self.window.rootViewController = ADVC;
     [self.window makeKeyAndVisible];
     return YES;
 }
